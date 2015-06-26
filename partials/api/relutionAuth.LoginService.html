@@ -80,21 +80,12 @@
 <script type="text/ng-template" id="index.html">
   <ion-view hide-nav-bar="true">
     <ion-content ng-controller="LoginController as loginC">
-    <form class="login-list" name="loginform" ng-submit="loginC.submit(loginform)" novalidate>
-    <div class="list">
-    <label class="item item-input ">
-    <i class="icon {{loginC.icons.username}}"></i>
-    <input type="text" name="username" ng-model="loginC.service.form.username.value" placeholder="{{::'Username'|translate}}" required>
-    </label>
-    <label class="item item-input ">
-    <i class="icon {{loginC.icons.password}}"></i>
-    <input type="password" name="password" ng-model="loginC.service.form.password.value" placeholder="{{::'Password'|translate}}" required>
-    </label>
-    </div>
-    <div class="padding">
-    <button class="button button-block icon-left button-dark button-icon icon {{loginC.icons.login}}" ng-disabled="loginForm.$invalid">{{::'LOGIN'|translate}}</button>
-    </div>
-    </form>
+    <div ng-if="!loginC.service.isLoggedIn" ng-include="loginC.include"></div>
+    <ion-list ng-if="loginC.service.isLoggedIn">
+    <ion-item class="item-text-wrap">
+    <p>You are already Logged in!</p>
+    </ion-item>
+    </ion-list>
     </ion-content>
   </ion-view>
 </script>
