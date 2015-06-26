@@ -21,10 +21,77 @@ angular.module('relutionApp', [
 ````
 Configuration
 ====
+#####Forms
+available Layout Styles
+[PLACEHOLDER_LABELS](http://ionicframework.com/docs/components/#forms-placeholder-labels)
+[INLINE_LABELS](http://ionicframework.com/docs/components/#forms-inline-labels)
+[STACKED_LABELS](http://ionicframework.com/docs/components/#forms-stacked-labels)
+[FLOATING_LABELS](http://ionicframework.com/docs/components/#forms-floating-labels)
+[INSET_LABELS](http://ionicframework.com/docs/components/#inset-forms)
+[INPUT_ICONS](http://ionicframework.com/docs/components/#input-icons)
+default is PLACEHOLDER_LABELS
+`````
+$relutionAuthLauncherProvider.setLayoutStyle();
+`````
+example:
+`````
+$relutionAuthLauncherProvider.setLayoutStyle('INPUT_ICONS');
+`````
+#####Icons
+default icons check [ionic Icons](http://ionicons.com/)
+`````
+  android: {
+    login: 'ion-log-in',
+    username: 'ion-android-person',
+    password: 'ion-lock-combination',
+    organization: 'ion-briefcase',
+    logout: 'ion-log-out'
+  },
+  ios: {
+    login: 'ion-log-in',
+    username: 'ion-ios-person',
+    password: 'ion-lock-combination',
+    organization: 'ion-briefcase',
+    logout: 'ion-log-out'
+  }
+`````
+example
+`````
+$relutionAuthLauncherProvider.setIcons();
+//or
+$relutionAuthLauncherProvider.setIcons('android', {
+	login: 'my cutom icon' ...
+});
+$relutionAuthLauncherProvider.setIcons('ios', {
+	login: 'my cutom icon' ...
+});
+`````
+#####Redirect after
+add your $state
+
+After Login redirect:
+`````
+$relutionAuthLauncherProvider.forwardStateAfterLogin = 'tab.messenger';
+`````
+After Logout redirect:
+`````
+$relutionAuthLauncherProvider.forwardStateAfterLogout = 'auth.login';
+`````
+#####Server Urls
+Login
+`````
+$relutionAuthLauncherProvider.loginUrl = 'http://coredev.mwaysolutions.com/rest/....';
+`````
+Logout
+`````
+$relutionAuthLauncherProvider.logoutUrl = 'http://coredev.mwaysolutions.com/rest/....';
+`````
+
+Full example
 ````
 angular.module('app', [])
 .config(function ($relutionAuthLauncherProvider) {
-    //$relutionAuthLauncherProvider.setLayoutStyle('INPUT_ICONS');
+    //$relutionAuthLauncherProvider.setLayoutStyle('STACKED_LABELS');
     //$relutionAuthLauncherProvider.setLayoutStyle('PLACEHOLDER_LABELS');
     //$relutionAuthLauncherProvider.setLayoutStyle('INLINE_LABELS');
     //$relutionAuthLauncherProvider.setLayoutStyle('FLOATING_LABELS');
@@ -36,6 +103,8 @@ angular.module('app', [])
     $relutionAuthLauncherProvider.loginUrl = 'myloginOnServer';
     $relutionAuthLauncherProvider.logoutUrl = 'mylogoutOnServer';
 ````
+
+
 #Login
 #####Controller
 please notice you have to use your Controller in 'as' mode and name it 'loginC' 
