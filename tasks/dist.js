@@ -26,7 +26,22 @@ gulp.task('templates', function () {
     .pipe(templateCache({module: 'relutionAuth'}))
     .pipe(gulp.dest('./dist'));
 });
-gulp.task('dist', ['templates', 'concat'], function () {
+
+gulp.task('dist', ['templates', 'concat', 'gh-pages'], function () {
+  gulp.src(['./src/**/*.js', './dist/templates.js'])
+    .pipe($.ngAnnotate({
+      add: true,
+      sourcemap: true
+    }))
+    .pipe($.sourcemaps.init())
+    .pipe($.uglify())
+    .pipe($.concat('relution-client-login.min.js'))
+    .pipe($.sourcemaps.write('./'))
+    .pipe($.size())
+    .pipe(gulp.dest('./dist/'));
+});
+
+gulp.task('dev', ['templates', 'concat'], function () {
   gulp.src(['./src/**/*.js', './dist/templates.js'])
     .pipe($.ngAnnotate({
       add: true,
