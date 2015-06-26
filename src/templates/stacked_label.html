@@ -1,0 +1,18 @@
+<form  class="login-list" name="loginform" ng-submit="loginC.submit(loginform)"
+      novalidate>
+  <div class="list">
+    <label class="item item-input item-stacked-label">
+      <span class="input-label balanced">Username</span>
+      <input class="royal" type="text" placeholder="John" name="username" ng-model="loginC.service.form.username.value"
+             required>
+    </label>
+    <label class="item item-input item-stacked-label">
+      <span class="input-label balanced">Password</span>
+      <input class="royal" type="password" name="password" placeholder="Password"
+             ng-model="loginC.service.form.password.value" required>
+    </label>
+    <button class="button button-dark button-block" ng-disabled="loginForm.$invalid">
+      {{::'LOGIN'|translate}}
+    </button>
+  </div>
+</form>

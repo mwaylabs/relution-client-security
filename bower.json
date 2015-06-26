@@ -1,0 +1,25 @@
+{
+  "name": "relution-client-login",
+  "version": "0.0.1-alpha",
+  "authors": [
+    "DrMabuse23 <p.brewing@mwaysolutions.com>"
+  ],
+  "description": "A Login/Logout Module for Relution LiveData. Works well with generator-m",
+  "main": ["dist/relution-client-login.js", "dist/templates.js"],
+  "keywords": [
+    "relution-livedata",
+    "auth",
+    "login",
+    "logout",
+    "ionic",
+    "angular"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

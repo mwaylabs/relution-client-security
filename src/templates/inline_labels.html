@@ -1,0 +1,15 @@
+<form class="login-list" name="loginform" ng-submit="loginC.submit(loginform)" novalidate>
+  <div class="list">
+    <label class="item item-input ">
+      <span class="input-label">{{::'Username'|translate}}</span>
+      <input type="text" name="username" ng-model="loginC.service.form.username.value" required>
+    </label>
+    <label class="item item-input ">
+      <span class="input-label">{{::'Password'|translate}}</span>
+      <input type="password" name="password" ng-model="loginC.service.form.password.value" required>
+    </label>
+  </div>
+  <div class="padding">
+    <button class="button button-block button-dark" ng-disabled="loginForm.$invalid">{{::'LOGIN'|translate}}</button>
+  </div>
+</form>

@@ -1,0 +1,5 @@
+# npm & bower
+/node_modules/
+/bower_components/
+# build folder
+/www/
