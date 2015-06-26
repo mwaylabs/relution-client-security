@@ -1,6 +1,6 @@
 ###Relution Client Login
-A Login/Logout Module for Relution LiveData. Works well with ['generator-m']('https://github.com/mwaylabs/generator-m')
-Installation`
+A Login/Logout Module for Relution LiveData. Works well with [generator-m](https://github.com/mwaylabs/generator-m)
+Installation
 ===
 ````
 bower install --save relution-client-login
@@ -15,7 +15,7 @@ Scripts
 Inject
 ===
 ````
-angular.module('relutoinLiveData', [
+angular.module('relutionApp', [
   'relutionAuth'
 ])
 ````
