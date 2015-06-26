@@ -23,78 +23,12 @@
 /**
  * @ngdoc service
  * @name relutionAuth:LoginService
- * @requires $q , $state , Base64, $rootScope, $relutionAuthLauncher
- *
- * @description
- * Simple Service to login and logout on relution server and store the result in the  LoginService.userResponse
- * @example
- <example module="logInExample">
- <file name="script.js">
- angular.module('logInExample', ['ionic', 'ui.router'])
- .value('Config', {
-  ENV:{
-    SERVER_URL: '',
-  },
-  CURRENT_AUTHORIZATION_LOGIN: '',
-  CURRENT_AUTHORIZATION_LOGOUT: ''
- })
- .config(function ($stateProvider, $relutionAuthLauncherProvider, Config) {
-    //$relutionAuthLauncherProvider.setLayoutStyle('INPUT_ICONS');
-    //$relutionAuthLauncherProvider.setLayoutStyle('PLACEHOLDER_LABELS');
-    //$relutionAuthLauncherProvider.setLayoutStyle('INLINE_LABELS');
-    //$relutionAuthLauncherProvider.setLayoutStyle('FLOATING_LABELS');
-    //$relutionAuthLauncherProvider.setLayoutStyle('INSET_LABELS');
-    $relutionAuthLauncherProvider.setLayoutStyle('INPUT_ICONS');
-    $relutionAuthLauncherProvider.setIcons();
-    $relutionAuthLauncherProvider.forwardStateAfterLogin = 'tab.messenger';
-    $relutionAuthLauncherProvider.forwardStateAfterLogout = 'auth.login';
-    $relutionAuthLauncherProvider.loginUrl = Config.ENV.SERVER_URL + Config.CURRENT_AUTHORIZATION_LOGIN;
-    $relutionAuthLauncherProvider.logoutUrl = Config.ENV.SERVER_URL + Config.CURRENT_AUTHORIZATION_LOGOUT;
-    $stateProvider
-      .state('auth', {
-        url: '/auth',
-        abstract: true,
-        template: '<ion-nav-view name="auth"></ion-nav-view>'
-      })
-      .state('auth.login', {
-        parent: 'auth',
-        url: '/login',
-        views: {
-          'auth': {
-            templateUrl: 'auth/templates/login/index.html',
-            controller: 'LoginCtrl as loginC'
-          }
-        }
-      });
-  })
- .controller('LoginController', ['$scope', 'LoginService', '$relutionAuthLauncher', function($scope, LoginService, $relutionAuthLauncher) {
-   var self = this;
-   this.submit = function (loginform) {
-      if (loginform.$valid) {
-        this.service.logon();
-      } else {
-        alert('form is not valid');
-      }
-   };
-   $scope.$on('$ionicView.afterEnter', function () {
-      self.icons = $relutionAuthLauncher.iconSet;
-      self.include = $relutionAuthLauncher.view;
-    });
- }]);
- </file>
- <file name="index.html">
-   <ion-view hide-nav-bar="true">
-     <ion-content ng-controller="LoginController as loginC">
-     <div ng-if="!loginC.service.isLoggedIn" ng-include="loginC.include"></div>
-     <ion-list ng-if="loginC.service.isLoggedIn">
-     <ion-item class="item-text-wrap">
-     <p>You are already Logged in!</p>
-     </ion-item>
-     </ion-list>
-     </ion-content>
-   </ion-view>
- </file>
- </example>
+ * @requires $q
+ * @requires $state
+ * @requires Base64
+ * @requires $rootScope
+ * @requires $relutionAuthLauncher
+ * @description Simple Service to login and logout on relution server and store the result in the  LoginService.userResponse
  */
 angular.module('relutionAuth')
   .service('LoginService', function LoginService($q, $state, Base64, $rootScope, $relutionAuthLauncher) {

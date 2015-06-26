@@ -1,4 +1,13 @@
 'use strict';
+/**
+* @ngdoc directive
+* @name relutionAuth:relutionLogOutButton
+*
+* @description
+* A logout button directive with a icon
+*
+* @restrict AEC
+ */
 angular.module('relutionAuth')
 .directive('relutionLogOutButton', function ($relutionAuthLauncher, $q, LoginService) {
   return {

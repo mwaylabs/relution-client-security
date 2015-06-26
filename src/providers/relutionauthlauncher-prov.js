@@ -28,12 +28,47 @@
 angular.module('relutionAuth')
   .provider('$relutionAuthLauncher', function () {
     var provider = this;
+    /**
+     * @ngdoc property
+     * @name iconSet
+     * @description available Icons
+     * @propertyOf relutionAuth:$relutionAuthLauncher
+     */
     provider.iconSet = null;
+    /**
+     * @ngdoc property
+     * @name forwardStateAfterLogin
+     * @description the redirect url after login is successfull
+     * @propertyOf relutionAuth:$relutionAuthLauncher
+     */
     provider.forwardStateAfterLogin = null;
+    /**
+     * @ngdoc property
+     * @name forwardStateAfterLogout
+     * @description the redirect url after logout
+     * @propertyOf relutionAuth:$relutionAuthLauncher
+     */
     provider.forwardStateAfterLogout = null;
+    /**
+     * @ngdoc property
+     * @name loginUrl
+     * @description the server login url
+     * @propertyOf relutionAuth:$relutionAuthLauncher
+     */
     provider.loginUrl = null;
+    /**
+     * @ngdoc property
+     * @name loginUrl
+     * @description the server logout url
+     * @propertyOf relutionAuth:$relutionAuthLauncher
+     */
     provider.logoutUrl = null;
-
+    /**
+     * @ngdoc property
+     * @name icons
+     * @description the standard icon set
+     * @propertyOf relutionAuth:$relutionAuthLauncher
+     */
     provider.icons =
     {
       android: {
@@ -51,7 +86,26 @@ angular.module('relutionAuth')
         logout: 'ion-log-out'
       }
     };
-
+    /**
+     * @ngdoc property
+     * @name formViews
+     * @description available form views
+     * @propertyOf relutionAuth:$relutionAuthLauncher
+     */
+    provider.formViews = {
+      PLACEHOLDER_LABELS: 'placeholder_label.html',
+      INLINE_LABELS: 'inline_labels.html',
+      STACKED_LABELS: 'stacked_label.html',
+      FLOATING_LABELS: 'floating_labels.html',
+      INSET_LABELS: 'inset_labels.html',
+      INPUT_ICONS: 'input_icons.html'
+    };
+    /**
+     * @ngdoc method
+     * @name setIcons
+     * @description set the icons by Platform
+     * @methodOf relutionAuth:$relutionAuthLauncher
+     */
     provider.setIcons = function (key, icons) {
       provider.iconSet = ionic.Platform.isAndroid() ? provider.icons.android : provider.icons.ios;
       if (!key && !icons) {
@@ -64,22 +118,24 @@ angular.module('relutionAuth')
         }
       }
     };
-
-    provider.formViews = {
-      PLACEHOLDER_LABELS: 'placeholder_label.html',
-      INLINE_LABELS: 'inline_labels.html',
-      STACKED_LABELS: 'stacked_label.html',
-      FLOATING_LABELS: 'floating_labels.html',
-      INSET_LABELS: 'inset_labels.html',
-      INPUT_ICONS: 'input_icons.html'
-    };
+    /**
+     * @ngdoc method
+     * @name setLayoutStyle
+     * @description standard view
+     * @methodOf relutionAuth:$relutionAuthLauncher
+     */
     provider.setLayoutStyle = function (key) {
       if (!key) {
         provider.setLayoutStyle(provider.formViews.PLACEHOLDER_LABELS);
       }
       provider.view = provider.formViews[key];
     };
-
+    /**
+     * @ngdoc method
+     * @name $get
+     * @description init the provider
+     * @methodOf relutionAuth:$relutionAuthLauncher
+     */
     provider.$get = function () {
       return provider;
     };

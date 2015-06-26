@@ -20,6 +20,10 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 'use strict';
+/**
+ * @ngdoc service
+ * @name relutionAuth:Base64
+ */
 angular.module('relutionAuth')
   .factory('Base64', function () {
     /* jshint ignore:start */
@@ -27,6 +31,11 @@ angular.module('relutionAuth')
     var keyStr = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
 
     return {
+      /**
+       * @ngdoc method
+       * @name encode
+       * @methodOf relutionAuth:Base64
+       */
       encode: function (input) {
         var output = "";
         var chr1, chr2, chr3 = "";
@@ -60,7 +69,11 @@ angular.module('relutionAuth')
 
         return output;
       },
-
+      /**
+       * @ngdoc method
+       * @name decode
+       * @methodOf relutionAuth:Base64
+       */
       decode: function (input) {
         var output = "";
         var chr1, chr2, chr3 = "";
