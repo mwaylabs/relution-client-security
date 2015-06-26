@@ -77,7 +77,7 @@ angular.module('relutionAuth')
       if (!key) {
         provider.setLayoutStyle(provider.formViews.PLACEHOLDER_LABELS);
       }
-      provider.view = '/' + provider.formViews[key];
+      provider.view = provider.formViews[key];
     };
 
     provider.$get = function () {
