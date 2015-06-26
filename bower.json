@@ -6,6 +6,10 @@
   ],
   "description": "A Login/Logout Module for Relution LiveData. Works well with generator-m",
   "main": ["dist/relution-client-login.js", "dist/templates.js"],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:mwaylabs/relution-client-login.git"
+  },
   "keywords": [
     "relution-livedata",
     "auth",
