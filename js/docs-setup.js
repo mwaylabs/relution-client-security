@@ -1,8 +1,17 @@
 NG_DOCS={
   "sections": {
-    "api": "API Documentation"
+    "api": "Relution Client Login"
   },
   "pages": [
+    {
+      "section": "api",
+      "id": "relutionAuth",
+      "shortName": "relutionAuth",
+      "type": "interface",
+      "moduleName": "relutionAuth",
+      "shortDescription": "A Login/Logout Module for Relution LiveData. Works well with generator-m check the Readme for more instructions",
+      "keywords": "api check generator-m instructions interface livedata login module readme relution relutionauth works"
+    },
     {
       "section": "api",
       "id": "relutionAuth:$relutionAuthLauncher",
@@ -10,7 +19,15 @@ NG_DOCS={
       "type": "service",
       "moduleName": "relutionAuth:$relutionAuthLauncher",
       "shortDescription": "Configuration for the relutionAuth module",
-      "keywords": "api configuration module relutionauth service"
+      "keywords": "$get api configuration form formviews forwardstateafterlogin forwardstateafterlogout icon icons iconset init login loginurl logout method module platform property provider redirect relutionauth server service set seticons setlayoutstyle standard successfull url view views"
+    },
+    {
+      "section": "api",
+      "id": "relutionAuth:Base64",
+      "shortName": "Base64",
+      "type": "service",
+      "moduleName": "relutionAuth:Base64",
+      "keywords": "api decode encode method relutionauth service"
     },
     {
       "section": "api",
@@ -19,7 +36,16 @@ NG_DOCS={
       "type": "service",
       "moduleName": "relutionAuth:LoginService",
       "shortDescription": "Simple Service to login and logout on relution server and store the result in the  LoginService.userResponse",
-      "keywords": "$ionicview $on $q $relutionauthlauncher $relutionauthlauncherprovider $rootscope $scope $state $stateprovider $valid abstract afterenter alert angular api base64 basic basicauth bool class clearcredentials config connect controller credentials current_authorization_login current_authorization_logout env error errorlogout failed fields floating_labels form forwardstateafterlogin forwardstateafterlogout function hash header hide-nav-bar html icons iconset include inline_labels input_icons inset_labels ionic isloggedin item-text-wrap js logged loggedin login loginc logincontroller loginctrl loginexample loginservice loginurl logon logout logouturl messenger method module ng-controller ng-if ng-include parent password placeholder_labels post property relution relutionauth remove response result router script securelogin securelogout server server_url service set seticons setlayoutstyle setpassword setusername simple store submit succesfully success successlogout tab template templateurl true ui url user username userresponse valid var view views"
+      "keywords": "$q $relutionauthlauncher $rootscope $state api base64 basic basicauth bool clearcredentials connect credentials error errorlogout failed fields form hash header isloggedin loggedin login loginservice logon logout method password post property relution relutionauth remove response result securelogin securelogout server service set setpassword setusername simple store succesfully success successlogout user username userresponse"
+    },
+    {
+      "section": "api",
+      "id": "relutionAuth:relutionLogOutButton",
+      "shortName": "relutionLogOutButton",
+      "type": "directive",
+      "moduleName": "relutionAuth:relutionLogOutButton",
+      "shortDescription": "A logout button directive with a icon",
+      "keywords": "aec api button directive icon logout relutionauth"
     }
   ],
   "apis": {
@@ -27,7 +53,7 @@ NG_DOCS={
   },
   "__file": "_FAKE_DEST_/js/docs-setup.js",
   "__options": {
-    "startPage": "/api",
+    "startPage": "/api/relutionAuth",
     "scripts": [
       "js/angular.min.js",
       "js/angular-animate.min.js",
@@ -35,12 +61,15 @@ NG_DOCS={
       "js/prettify.js"
     ],
     "styles": [],
-    "title": "API Documentation",
+    "title": "Relution Client Login",
     "html5Mode": true,
     "editExample": true,
     "navTemplate": false,
     "navContent": "",
     "navTemplateData": {},
+    "image": "http://www.relution.io/de/wp-content/themes/Divi/images/logo.png",
+    "imageLink": "https://github.com/mwaylabs/relution-client-login",
+    "titleLink": "/api/relutionAuth",
     "loadDefaults": {
       "angular": true,
       "angularAnimate": true,
@@ -50,7 +79,7 @@ NG_DOCS={
   },
   "html5Mode": true,
   "editExample": true,
-  "startPage": "/api",
+  "startPage": "/api/relutionAuth",
   "scripts": [
     "angular.min.js",
     "angular-animate.min.js",
