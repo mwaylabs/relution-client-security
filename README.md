@@ -3,7 +3,7 @@ A Login/Logout Module for Relution LiveData. Works well with [generator-m](https
 Installation
 ===
 ````
-bower install --save relution-client-login
+bower install --save relution-client-security
 ````
 
 [Docs](http://mwaylabs.github.io/relution-client-security)
@@ -11,7 +11,7 @@ bower install --save relution-client-login
 Scripts
 ===
 ````
-<script src="bower_components/relution-client-login/dist/relution-client-login.js"></script>
+<script src="bower_components/relution-client-login/dist/relution-client-security.js"></script>
 <script src="bower_components/relution-client-login/dist/templates.js"></script>
 ````
 Inject
@@ -33,11 +33,11 @@ available Layout Styles
 [INPUT_ICONS](http://ionicframework.com/docs/components/#input-icons)
 default is PLACEHOLDER_LABELS
 `````
-$relutionAuthLauncherProvider.setLayoutStyle();
+$relutionSecurityConfigProvider.setLayoutStyle();
 `````
 example:
 `````
-$relutionAuthLauncherProvider.setLayoutStyle('INPUT_ICONS');
+$relutionSecurityConfigProvider.setLayoutStyle('INPUT_ICONS');
 `````
 #####Icons
 default icons check [ionic Icons](http://ionicons.com/)
@@ -59,12 +59,12 @@ default icons check [ionic Icons](http://ionicons.com/)
 `````
 example
 `````
-$relutionAuthLauncherProvider.setIcons();
+$relutionSecurityConfigProvider.setIcons();
 //or
-$relutionAuthLauncherProvider.setIcons('android', {
+$relutionSecurityConfigProvider.setIcons('android', {
 	login: 'my cutom icon' ...
 });
-$relutionAuthLauncherProvider.setIcons('ios', {
+$relutionSecurityConfigProvider.setIcons('ios', {
 	login: 'my cutom icon' ...
 });
 `````
@@ -73,37 +73,37 @@ add your $state
 
 After Login redirect:
 `````
-$relutionAuthLauncherProvider.forwardStateAfterLogin = 'tab.messenger';
+$relutionSecurityConfigProvider.forwardStateAfterLogin = 'tab.messenger';
 `````
 After Logout redirect:
 `````
-$relutionAuthLauncherProvider.forwardStateAfterLogout = 'auth.login';
+$relutionSecurityConfigProvider.forwardStateAfterLogout = 'auth.login';
 `````
 #####Server Urls
 Login
 `````
-$relutionAuthLauncherProvider.loginUrl = 'http://coredev.mwaysolutions.com/rest/....';
+$relutionSecurityConfigProvider.loginUrl = 'http://coredev.mwaysolutions.com/rest/....';
 `````
 Logout
 `````
-$relutionAuthLauncherProvider.logoutUrl = 'http://coredev.mwaysolutions.com/rest/....';
+$relutionSecurityConfigProvider.logoutUrl = 'http://coredev.mwaysolutions.com/rest/....';
 `````
 
 Full example
 ````
 angular.module('app', [])
-.config(function ($relutionAuthLauncherProvider) {
-    //$relutionAuthLauncherProvider.setLayoutStyle('STACKED_LABELS');
-    //$relutionAuthLauncherProvider.setLayoutStyle('PLACEHOLDER_LABELS');
-    //$relutionAuthLauncherProvider.setLayoutStyle('INLINE_LABELS');
-    //$relutionAuthLauncherProvider.setLayoutStyle('FLOATING_LABELS');
-    //$relutionAuthLauncherProvider.setLayoutStyle('INSET_LABELS');
-    $relutionAuthLauncherProvider.setLayoutStyle('INPUT_ICONS');
-    $relutionAuthLauncherProvider.setIcons();
-    $relutionAuthLauncherProvider.forwardStateAfterLogin = 'tab.messenger';
-    $relutionAuthLauncherProvider.forwardStateAfterLogout = 'auth.login';
-    $relutionAuthLauncherProvider.loginUrl = 'myloginOnServer';
-    $relutionAuthLauncherProvider.logoutUrl = 'mylogoutOnServer';
+.config(function ($relutionSecurityConfigProvider) {
+    //$relutionSecurityConfigProvider.setLayoutStyle('STACKED_LABELS');
+    //$relutionSecurityConfigProvider.setLayoutStyle('PLACEHOLDER_LABELS');
+    //$relutionSecurityConfigProvider.setLayoutStyle('INLINE_LABELS');
+    //$relutionSecurityConfigProvider.setLayoutStyle('FLOATING_LABELS');
+    //$relutionSecurityConfigProvider.setLayoutStyle('INSET_LABELS');
+    $relutionSecurityConfigProvider.setLayoutStyle('INPUT_ICONS');
+    $relutionSecurityConfigProvider.setIcons();
+    $relutionSecurityConfigProvider.forwardStateAfterLogin = 'tab.messenger';
+    $relutionSecurityConfigProvider.forwardStateAfterLogout = 'auth.login';
+    $relutionSecurityConfigProvider.loginUrl = 'myloginOnServer';
+    $relutionSecurityConfigProvider.logoutUrl = 'mylogoutOnServer';
 ````
 
 
@@ -147,7 +147,7 @@ full controller
  * @description add your description
  */
 angular.module('auth')
-  .controller('LoginCtrl', function LoginCtrl($scope, $state, $filter, LoginService, AlertService, $relutionAuthLauncher) {
+  .controller('LoginCtrl', function LoginCtrl($scope, $state, $filter, LoginService, AlertService, $relutionSecurityConfig) {
     var self = this;
     this.service = LoginService;
     this.getMessage = function (errors) {
@@ -176,8 +176,8 @@ angular.module('auth')
       }
     };
     $scope.$on('$ionicView.afterEnter', function () {
-      self.icons = $relutionAuthLauncher.iconSet;
-      self.include = $relutionAuthLauncher.view;
+      self.icons = $relutionSecurityConfig.iconSet;
+      self.include = $relutionSecurityConfig.view;
     });
   });
 ````
@@ -213,4 +213,11 @@ View
   </ion-nav-buttons>
 </ion-nav-bar>
 ````
+
+###User Information
+from the request you get the response Object it is available in our LoginService
+````
+LoginService.userResponse;
+````
+
 

@@ -25,4 +25,4 @@
  * @name relutionAuth
  * @description A Login/Logout Module for Relution LiveData. Works well with generator-m check the Readme for more instructions
  */
-angular.module('relutionAuth', []);
+angular.module('relutionClientSecurity', []);

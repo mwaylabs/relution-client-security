@@ -22,9 +22,9 @@
 'use strict';
 /**
  * @ngdoc service
- * @name relutionAuth:Base64
+ * @name relutionClientSecurity:Base64
  */
-angular.module('relutionAuth')
+angular.module('relutionClientSecurity')
   .factory('Base64', function () {
     /* jshint ignore:start */
     // jscs:disable
@@ -34,7 +34,7 @@ angular.module('relutionAuth')
       /**
        * @ngdoc method
        * @name encode
-       * @methodOf relutionAuth:Base64
+       * @methodOf relutionClientSecurity:Base64
        */
       encode: function (input) {
         var output = "";
@@ -72,7 +72,7 @@ angular.module('relutionAuth')
       /**
        * @ngdoc method
        * @name decode
-       * @methodOf relutionAuth:Base64
+       * @methodOf relutionClientSecurity:Base64
        */
       decode: function (input) {
         var output = "";

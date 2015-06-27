@@ -20,22 +20,12 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 'use strict';
-angular.module('relutionAuth', []);
-
-'use strict';
-angular.module('relutionAuth')
-.directive('relutionLogOutButton', ["$relutionAuthLauncher", "$q", "LoginService", function ($relutionAuthLauncher, $q, LoginService) {
-  return {
-    template: '<button ng-click="logout();" class="button button-icon icon {{icon}}"></button>',
-    restrict: 'AEC',
-    link: function postLink (scope) {
-      scope.icon = $relutionAuthLauncher.iconSet.logout;
-      scope.logout = function () {
-        return LoginService.secureLogout();
-      };
-    }
-  };
-}]);
+/**
+ * @ngdoc interface
+ * @name relutionAuth
+ * @description A Login/Logout Module for Relution LiveData. Works well with generator-m check the Readme for more instructions
+ */
+angular.module('relutionClientSecurity', []);
 
 /**
  * Created by pascalbrewing on 22/06/15
@@ -59,13 +49,22 @@ angular.module('relutionAuth')
  * POSSIBILITY OF SUCH DAMAGE.
  */
 'use strict';
-angular.module('relutionAuth')
+/**
+ * @ngdoc service
+ * @name relutionClientSecurity:Base64
+ */
+angular.module('relutionClientSecurity')
   .factory('Base64', function () {
     /* jshint ignore:start */
     // jscs:disable
     var keyStr = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
 
     return {
+      /**
+       * @ngdoc method
+       * @name encode
+       * @methodOf relutionClientSecurity:Base64
+       */
       encode: function (input) {
         var output = "";
         var chr1, chr2, chr3 = "";
@@ -99,7 +98,11 @@ angular.module('relutionAuth')
 
         return output;
       },
-
+      /**
+       * @ngdoc method
+       * @name decode
+       * @methodOf relutionClientSecurity:Base64
+       */
       decode: function (input) {
         var output = "";
         var chr1, chr2, chr3 = "";
@@ -146,6 +149,30 @@ angular.module('relutionAuth')
     // jscs:enable
   });
 
+'use strict';
+/**
+* @ngdoc directive
+* @name relutionClientSecurity:relutionLogOutButton
+*
+* @description
+* A logout button directive with a icon
+*
+* @restrict AEC
+ */
+angular.module('relutionClientSecurity')
+.directive('relutionLogOutButton', ["$relutionAuthLauncher", "$q", "LoginService", function ($relutionAuthLauncher, $q, LoginService) {
+  return {
+    template: '<button ng-click="logout();" class="button button-icon icon {{icon}}"></button>',
+    restrict: 'AEC',
+    link: function postLink (scope) {
+      scope.icon = $relutionAuthLauncher.iconSet.logout;
+      scope.logout = function () {
+        return LoginService.secureLogout();
+      };
+    }
+  };
+}]);
+
 /**
  * Created by pascalbrewing on 24/06/15
  * Copyright (c)
@@ -170,18 +197,53 @@ angular.module('relutionAuth')
 'use strict';
 /**
  * @ngdoc service
- * @name relutionAuth:$relutionAuthLauncher
+ * @name relutionClientSecurity:$relutionSecurityConfig
  * @description Configuration for the relutionAuth module
  */
-angular.module('relutionAuth')
-  .provider('$relutionAuthLauncher', function () {
+angular.module('relutionClientSecurity')
+  .provider('$relutionSecurityConfig', function () {
     var provider = this;
+    /**
+     * @ngdoc property
+     * @name iconSet
+     * @description available Icons
+     * @propertyOf relutionClientSecurity:$relutionSecurityConfig
+     */
     provider.iconSet = null;
+    /**
+     * @ngdoc property
+     * @name forwardStateAfterLogin
+     * @description the redirect url after login is successfull
+     * @propertyOf relutionClientSecurity:$relutionSecurityConfig
+     */
     provider.forwardStateAfterLogin = null;
+    /**
+     * @ngdoc property
+     * @name forwardStateAfterLogout
+     * @description the redirect url after logout
+     * @propertyOf relutionClientSecurity:$relutionSecurityConfig
+     */
     provider.forwardStateAfterLogout = null;
+    /**
+     * @ngdoc property
+     * @name loginUrl
+     * @description the server login url
+     * @propertyOf relutionClientSecurity:$relutionSecurityConfig
+     */
     provider.loginUrl = null;
+    /**
+     * @ngdoc property
+     * @name loginUrl
+     * @description the server logout url
+     * @propertyOf relutionClientSecurity:$relutionSecurityConfig
+     */
     provider.logoutUrl = null;
-
+    /**
+     * @ngdoc property
+     * @name icons
+     * @description the standard icon set
+     * @propertyOf relutionClientSecurity:$relutionSecurityConfig
+     */
     provider.icons =
     {
       android: {
@@ -199,7 +261,26 @@ angular.module('relutionAuth')
         logout: 'ion-log-out'
       }
     };
-
+    /**
+     * @ngdoc property
+     * @name formViews
+     * @description available form views
+     * @propertyOf relutionClientSecurity:$relutionSecurityConfig
+     */
+    provider.formViews = {
+      PLACEHOLDER_LABELS: 'placeholder_label.html',
+      INLINE_LABELS: 'inline_labels.html',
+      STACKED_LABELS: 'stacked_label.html',
+      FLOATING_LABELS: 'floating_labels.html',
+      INSET_LABELS: 'inset_labels.html',
+      INPUT_ICONS: 'input_icons.html'
+    };
+    /**
+     * @ngdoc method
+     * @name setIcons
+     * @description set the icons by Platform
+     * @methodOf relutionClientSecurity:$relutionSecurityConfig
+     */
     provider.setIcons = function (key, icons) {
       provider.iconSet = ionic.Platform.isAndroid() ? provider.icons.android : provider.icons.ios;
       if (!key && !icons) {
@@ -212,22 +293,24 @@ angular.module('relutionAuth')
         }
       }
     };
-
-    provider.formViews = {
-      PLACEHOLDER_LABELS: 'placeholder_label.html',
-      INLINE_LABELS: 'inline_labels.html',
-      STACKED_LABELS: 'stacked_label.html',
-      FLOATING_LABELS: 'floating_labels.html',
-      INSET_LABELS: 'inset_labels.html',
-      INPUT_ICONS: 'input_icons.html'
-    };
+    /**
+     * @ngdoc method
+     * @name setLayoutStyle
+     * @description standard view
+     * @methodOf relutionClientSecurity:$relutionSecurityConfig
+     */
     provider.setLayoutStyle = function (key) {
       if (!key) {
         provider.setLayoutStyle(provider.formViews.PLACEHOLDER_LABELS);
       }
       provider.view = provider.formViews[key];
     };
-
+    /**
+     * @ngdoc method
+     * @name $get
+     * @description init the provider
+     * @methodOf relutionClientSecurity:$relutionSecurityConfig
+     */
     provider.$get = function () {
       return provider;
     };
@@ -257,109 +340,43 @@ angular.module('relutionAuth')
 'use strict';
 /**
  * @ngdoc service
- * @name relutionAuth:LoginService
- * @requires $q , $state , Base64, $rootScope, $relutionAuthLauncher
- *
- * @description
- * Simple Service to login and logout on relution server and store the result in the  LoginService.userResponse
- * @example
- <example module="logInExample">
- <file name="script.js">
- angular.module('logInExample', ['ionic', 'ui.router'])
- .value('Config', {
-  ENV:{
-    SERVER_URL: '',
-  },
-  CURRENT_AUTHORIZATION_LOGIN: '',
-  CURRENT_AUTHORIZATION_LOGOUT: ''
- })
- .config(function ($stateProvider, $relutionAuthLauncherProvider, Config) {
-    //$relutionAuthLauncherProvider.setLayoutStyle('INPUT_ICONS');
-    //$relutionAuthLauncherProvider.setLayoutStyle('PLACEHOLDER_LABELS');
-    //$relutionAuthLauncherProvider.setLayoutStyle('INLINE_LABELS');
-    //$relutionAuthLauncherProvider.setLayoutStyle('FLOATING_LABELS');
-    //$relutionAuthLauncherProvider.setLayoutStyle('INSET_LABELS');
-    $relutionAuthLauncherProvider.setLayoutStyle('INPUT_ICONS');
-    $relutionAuthLauncherProvider.setIcons();
-    $relutionAuthLauncherProvider.forwardStateAfterLogin = 'tab.messenger';
-    $relutionAuthLauncherProvider.forwardStateAfterLogout = 'auth.login';
-    $relutionAuthLauncherProvider.loginUrl = Config.ENV.SERVER_URL + Config.CURRENT_AUTHORIZATION_LOGIN;
-    $relutionAuthLauncherProvider.logoutUrl = Config.ENV.SERVER_URL + Config.CURRENT_AUTHORIZATION_LOGOUT;
-    $stateProvider
-      .state('auth', {
-        url: '/auth',
-        abstract: true,
-        template: '<ion-nav-view name="auth"></ion-nav-view>'
-      })
-      .state('auth.login', {
-        parent: 'auth',
-        url: '/login',
-        views: {
-          'auth': {
-            templateUrl: 'auth/templates/login/index.html',
-            controller: 'LoginCtrl as loginC'
-          }
-        }
-      });
-  })
- .controller('LoginController', ['$scope', 'LoginService', '$relutionAuthLauncher', function($scope, LoginService, $relutionAuthLauncher) {
-   var self = this;
-   this.submit = function (loginform) {
-      if (loginform.$valid) {
-        this.service.logon();
-      } else {
-        alert('form is not valid');
-      }
-   };
-   $scope.$on('$ionicView.afterEnter', function () {
-      self.icons = $relutionAuthLauncher.iconSet;
-      self.include = $relutionAuthLauncher.view;
-    });
- }]);
- </file>
- <file name="index.html">
-   <ion-view hide-nav-bar="true">
-     <ion-content ng-controller="LoginController as loginC">
-     <div ng-if="!loginC.service.isLoggedIn" ng-include="loginC.include"></div>
-     <ion-list ng-if="loginC.service.isLoggedIn">
-     <ion-item class="item-text-wrap">
-     <p>You are already Logged in!</p>
-     </ion-item>
-     </ion-list>
-     </ion-content>
-   </ion-view>
- </file>
- </example>
+ * @name relutionClientSecurity:LoginService
+ * @requires $q
+ * @requires $state
+ * @requires Base64
+ * @requires $rootScope
+ * @requires $relutionSecurityConfig
+ * @description Simple Service to login and logout on relution server and store the result in the  LoginService.userResponse
  */
-angular.module('relutionAuth')
-  .service('LoginService', ["$q", "$state", "Base64", "$rootScope", "$relutionAuthLauncher", function LoginService($q, $state, Base64, $rootScope, $relutionAuthLauncher) {
+angular.module('relutionClientSecurity')
+  .service('LoginService', ["$q", "$state", "Base64", "$rootScope", "$relutionSecurityConfig", function LoginService($q, $state, Base64, $rootScope, $relutionSecurityConfig) {
     var self = this;
     /**
      * @ngdoc property
      * @name userResponse
      * @description the response user
-     * @propertyOf relutionAuth:LoginService
+     * @propertyOf relutionClientSecurity:LoginService
      */
     this.userResponse = null;
     /**
      * @ngdoc property
      * @name isLoggedIn
      * @description bool if the user is loggedIn
-     * @propertyOf relutionAuth:LoginService
+     * @propertyOf relutionClientSecurity:LoginService
      */
     this.isLoggedIn = false;
     /**
      * @ngdoc property
      * @name basicAuth
      * @description a base64 hash
-     * @propertyOf relutionAuth:LoginService
+     * @propertyOf relutionClientSecurity:LoginService
      */
     this.basicAuth = null;
     /**
      * @ngdoc property
      * @name form
      * @description the form fields
-     * @propertyOf relutionAuth:LoginService
+     * @propertyOf relutionClientSecurity:LoginService
      */
     this.form = {
       username: {
@@ -377,7 +394,7 @@ angular.module('relutionAuth')
      * @ngdoc method
      * @name setUsername
      * @description set the username
-     * @methodOf relutionAuth:LoginService
+     * @methodOf relutionClientSecurity:LoginService
      */
     this.setUsername = function (username) {
       self.form.username.value = username;
@@ -386,7 +403,7 @@ angular.module('relutionAuth')
      * @ngdoc method
      * @name setPassword
      * @description set the password
-     * @methodOf relutionAuth:LoginService
+     * @methodOf relutionClientSecurity:LoginService
      */
     this.setPassword = function (password) {
       self.form.password.value = password;
@@ -395,7 +412,7 @@ angular.module('relutionAuth')
      * @ngdoc method
      * @name clearCredentials
      * @description remove the Basic auth from the Header
-     * @methodOf relutionAuth:LoginService
+     * @methodOf relutionClientSecurity:LoginService
      */
     this.clearCredentials = function () {
       jQuery.ajaxSetup({
@@ -408,7 +425,7 @@ angular.module('relutionAuth')
      * @ngdoc method
      * @name logon
      * @description set credentials the use post to connect
-     * @methodOf relutionAuth:LoginService
+     * @methodOf relutionClientSecurity:LoginService
      */
     this.logon = function () {
       self.basicAuth = Base64.encode(self.form.username.value + ':' + self.form.password.value);
@@ -423,17 +440,17 @@ angular.module('relutionAuth')
      * @ngdoc method
      * @name success
      * @description login succesfully
-     * @methodOf relutionAuth:LoginService
+     * @methodOf relutionClientSecurity:LoginService
      */
     this.success = function (resp) {
       self.userResponse = resp;
-      return $state.go($relutionAuthLauncher.forwardStateAfterLogin);
+      return $state.go($relutionSecurityConfig.forwardStateAfterLogin);
     };
     /**
      * @ngdoc method
      * @name error
      * @description login failed
-     * @methodOf relutionAuth:LoginService
+     * @methodOf relutionClientSecurity:LoginService
      */
     this.error = function (e) {
       return console.error('Login failed', e);
@@ -442,18 +459,18 @@ angular.module('relutionAuth')
      * @ngdoc method
      * @name successLogout
      * @description logout succesfully
-     * @methodOf relutionAuth:LoginService
+     * @methodOf relutionClientSecurity:LoginService
      */
     this.successLogout = function () {
       self.user = null;
       console.log('logged out');
-      return $state.go($relutionAuthLauncher.forwardStateAfterLogout);
+      return $state.go($relutionSecurityConfig.forwardStateAfterLogout);
     };
     /**
      * @ngdoc method
      * @name errorLogout
      * @description logout failed
-     * @methodOf relutionAuth:LoginService
+     * @methodOf relutionClientSecurity:LoginService
      */
     this.errorLogout = function (e) {
       return console.error('Logout failed', e);
@@ -462,11 +479,11 @@ angular.module('relutionAuth')
      * @ngdoc method
      * @name secureLogin
      * @description login on Server with Credentials
-     * @methodOf relutionAuth:LoginService
+     * @methodOf relutionClientSecurity:LoginService
      */
     this.secureLogin = function () {
-      if (!$relutionAuthLauncher.loginUrl) {
-        console.error('please configure your loginUrl, $relutionAuthLauncher.loginUrl = secureloginUrl');
+      if (!$relutionSecurityConfig.loginUrl) {
+        console.error('please configure your loginUrl, $relutionSecurityConfig.loginUrl = secureloginUrl');
         return $q.when(false);
       }
       var params = {
@@ -478,7 +495,7 @@ angular.module('relutionAuth')
         headers: {
           'Content-Type': 'application/json'//USE JSON Stadard
         },
-        url: $relutionAuthLauncher.loginUrl,
+        url: $relutionSecurityConfig.loginUrl,
         data: JSON.stringify(params),
         success: self.success,
         error: self.error,
@@ -489,14 +506,14 @@ angular.module('relutionAuth')
      * @ngdoc method
      * @name secureLogout
      * @description logout on Server
-     * @methodOf relutionAuth:LoginService
+     * @methodOf relutionClientSecurity:LoginService
      */
     this.secureLogout = function () {
-      if (!$relutionAuthLauncher.logoutUrl) {
-        console.error('please configure your logoutUrl, $relutionAuthLauncher.logoutUrl = secureloginUrl');
+      if (!$relutionSecurityConfig.logoutUrl) {
+        console.error('please configure your logoutUrl, $relutionSecurityConfig.logoutUrl = secureloginUrl');
         return $q.when(false);
       }
-      return jQuery.post($relutionAuthLauncher.logoutUrl, self.successLogout);
+      return jQuery.post($relutionSecurityConfig.logoutUrl, self.successLogout);
     };
   }]
 );

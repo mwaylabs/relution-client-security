@@ -13,11 +13,11 @@ gulp.task('clean:docs', function (cb) {
 });
 var options = {
   html5Mode: true,
-  startPage: '/api/relutionAuth',
-  title: "Relution Client Login",
+  startPage: '/api/relutionClientSecurity',
+  title: "Relution Client Security",
   image: "http://www.relution.io/de/wp-content/themes/Divi/images/logo.png",
-  imageLink: "https://github.com/mwaylabs/relution-client-login",
-  titleLink: "/api/relutionAuth"
+  imageLink: "https://github.com/mwaylabs/relution-client-security",
+  titleLink: "/api/relutionClientSecurity"
 };
 gulp.task('docs', ['clean:docs'], function () {
   return gulp.src('./src/**/*.js')

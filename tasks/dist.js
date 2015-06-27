@@ -17,13 +17,13 @@ gulp.task('concat',['clean:dist'], function () {
       add: true,
       sourcemap: true
     }))
-    .pipe($.concat('relution-client-login.js'))
+    .pipe($.concat('relution-client-security.js'))
     .pipe($.size())
     .pipe(gulp.dest('./dist/'));
 });
 gulp.task('templates', function () {
   gulp.src('src/templates/*.html')
-    .pipe(templateCache({module: 'relutionAuth'}))
+    .pipe(templateCache({module: 'relutionClientSecurity'}))
     .pipe(gulp.dest('./dist'));
 });
 
@@ -35,7 +35,7 @@ gulp.task('dist', ['templates', 'concat', 'gh-pages'], function () {
     }))
     .pipe($.sourcemaps.init())
     .pipe($.uglify())
-    .pipe($.concat('relution-client-login.min.js'))
+    .pipe($.concat('relution-client-security.min.js'))
     .pipe($.sourcemaps.write('./'))
     .pipe($.size())
     .pipe(gulp.dest('./dist/'));
@@ -49,7 +49,7 @@ gulp.task('dev', ['templates', 'concat'], function () {
     }))
     .pipe($.sourcemaps.init())
     .pipe($.uglify())
-    .pipe($.concat('relution-client-login.min.js'))
+    .pipe($.concat('relution-client-security.min.js'))
     .pipe($.sourcemaps.write('./'))
     .pipe($.size())
     .pipe(gulp.dest('./dist/'));
