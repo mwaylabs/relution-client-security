@@ -22,7 +22,7 @@
 'use strict';
 /**
  * @ngdoc interface
- * @name relutionAuth
+ * @name relutionClientSecurity
  * @description A Login/Logout Module for Relution LiveData. Works well with generator-m check the Readme for more instructions
  */
 angular.module('relutionClientSecurity', []);
