@@ -5,12 +5,12 @@ NG_DOCS={
   "pages": [
     {
       "section": "api",
-      "id": "relutionAuth",
-      "shortName": "relutionAuth",
+      "id": "relutionClientSecurity",
+      "shortName": "relutionClientSecurity",
       "type": "interface",
-      "moduleName": "relutionAuth",
+      "moduleName": "relutionClientSecurity",
       "shortDescription": "A Login/Logout Module for Relution LiveData. Works well with generator-m check the Readme for more instructions",
-      "keywords": "api check generator-m instructions interface livedata login module readme relution relutionauth works"
+      "keywords": "api check generator-m instructions interface livedata login module readme relution relutionclientsecurity works"
     },
     {
       "section": "api",
