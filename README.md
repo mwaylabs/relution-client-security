@@ -18,7 +18,7 @@ Inject
 ===
 ````
 angular.module('relutionApp', [
-  'relutionAuth'
+  'relutionClientSecurity'
 ])
 ````
 Configuration
@@ -116,7 +116,7 @@ ng-controller="LoginCtrl as loginC"
 ````
 or in $stateProvider : 
 ````
-angular.module('auth', ['relutionAuth'])
+angular.module('auth', ['relutionClientSecurity'])
   .config(function ($stateProvider) {
     debugger;
     $stateProvider
