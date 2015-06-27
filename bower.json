@@ -1,5 +1,5 @@
 {
-  "name": "relution-client-login",
+  "name": "relution-client-security",
   "version": "0.0.5-alpha",
   "authors": [
     "DrMabuse23 <p.brewing@mwaysolutions.com>"
@@ -11,7 +11,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:mwaylabs/relution-client-login.git"
+    "url": "git@github.com:mwaylabs/relution-client-security.git"
   },
   "dependencies": {
     "ionic": "1.0.0",
