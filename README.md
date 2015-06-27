@@ -150,6 +150,8 @@ angular.module('auth')
   .controller('LoginCtrl', function LoginCtrl($scope, $state, $filter, LoginService, AlertService, $relutionSecurityConfig) {
     var self = this;
     this.service = LoginService;
+    
+    //error handling form not valid
     this.getMessage = function (errors) {
       var message = 'Please check following Fields: ';
       angular.forEach(errors, function (error) {
@@ -157,24 +159,18 @@ angular.module('auth')
       });
       return message;
     };
-
+    
+    //submit form you get the form
     this.submit = function (loginform) {
       if (loginform.$valid) {
         this.service.logon();
       } else {
-        AlertService.map({
-          cssClass: 'assertive',
-          title: 'Following Errors Occured',
-          message: self.getMessage(loginform.$error.required),
-          buttons: [
-            {
-              text: $filter('translate')('CLOSE'),
-              type: 'button-positive'
-            }
-          ]
-        });
+        //form not valid
+        alert(self.getMessage(loginform.$error.required));
       }
     };
+    
+    //set view set icons
     $scope.$on('$ionicView.afterEnter', function () {
       self.icons = $relutionSecurityConfig.iconSet;
       self.include = $relutionSecurityConfig.view;
@@ -182,6 +178,11 @@ angular.module('auth')
   });
 ````
 View
+
+````
+<div ng-if="!loginC.service.isLoggedIn" ng-include="loginC.include"></div>
+````
+ion view example:
 
 ````
 <ion-view hide-nav-bar="true">
@@ -200,9 +201,14 @@ View
     </ion-list>
   </ion-content>
 </ion-view>
-`````
+````
 
 #Logout Directive
+
+````
+<relution-log-out-button></relution-log-out-button>
+````
+navbar example:
 
 ````
 <ion-nav-bar class="bar-dark">
