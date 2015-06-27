@@ -22,10 +22,34 @@
 'use strict';
 /**
  * @ngdoc interface
- * @name relutionAuth
+ * @name relutionClientSecurity
  * @description A Login/Logout Module for Relution LiveData. Works well with generator-m check the Readme for more instructions
  */
 angular.module('relutionClientSecurity', []);
+
+'use strict';
+/**
+* @ngdoc directive
+* @name relutionClientSecurity:relutionLogOutButton
+*
+* @description
+* A logout button directive with a icon
+*
+* @restrict AEC
+ */
+angular.module('relutionClientSecurity')
+.directive('relutionLogOutButton', ["$relutionAuthLauncher", "$q", "LoginService", function ($relutionAuthLauncher, $q, LoginService) {
+  return {
+    template: '<button ng-click="logout();" class="button button-icon icon {{icon}}"></button>',
+    restrict: 'AEC',
+    link: function postLink (scope) {
+      scope.icon = $relutionAuthLauncher.iconSet.logout;
+      scope.logout = function () {
+        return LoginService.secureLogout();
+      };
+    }
+  };
+}]);
 
 /**
  * Created by pascalbrewing on 22/06/15
@@ -148,30 +172,6 @@ angular.module('relutionClientSecurity')
     /* jshint ignore:end */
     // jscs:enable
   });
-
-'use strict';
-/**
-* @ngdoc directive
-* @name relutionClientSecurity:relutionLogOutButton
-*
-* @description
-* A logout button directive with a icon
-*
-* @restrict AEC
- */
-angular.module('relutionClientSecurity')
-.directive('relutionLogOutButton', ["$relutionAuthLauncher", "$q", "LoginService", function ($relutionAuthLauncher, $q, LoginService) {
-  return {
-    template: '<button ng-click="logout();" class="button button-icon icon {{icon}}"></button>',
-    restrict: 'AEC',
-    link: function postLink (scope) {
-      scope.icon = $relutionAuthLauncher.iconSet.logout;
-      scope.logout = function () {
-        return LoginService.secureLogout();
-      };
-    }
-  };
-}]);
 
 /**
  * Created by pascalbrewing on 24/06/15
