@@ -1,6 +1,6 @@
 NG_DOCS={
   "sections": {
-    "api": "Relution Client Login"
+    "api": "Relution Client Security"
   },
   "pages": [
     {
@@ -14,38 +14,38 @@ NG_DOCS={
     },
     {
       "section": "api",
-      "id": "relutionAuth:$relutionAuthLauncher",
-      "shortName": "$relutionAuthLauncher",
+      "id": "relutionClientSecurity:$relutionSecurityConfig",
+      "shortName": "$relutionSecurityConfig",
       "type": "service",
-      "moduleName": "relutionAuth:$relutionAuthLauncher",
+      "moduleName": "relutionClientSecurity:$relutionSecurityConfig",
       "shortDescription": "Configuration for the relutionAuth module",
-      "keywords": "$get api configuration form formviews forwardstateafterlogin forwardstateafterlogout icon icons iconset init login loginurl logout method module platform property provider redirect relutionauth server service set seticons setlayoutstyle standard successfull url view views"
+      "keywords": "$get api configuration form formviews forwardstateafterlogin forwardstateafterlogout icon icons iconset init login loginurl logout method module platform property provider redirect relutionauth relutionclientsecurity server service set seticons setlayoutstyle standard successfull url view views"
     },
     {
       "section": "api",
-      "id": "relutionAuth:Base64",
+      "id": "relutionClientSecurity:Base64",
       "shortName": "Base64",
       "type": "service",
-      "moduleName": "relutionAuth:Base64",
-      "keywords": "api decode encode method relutionauth service"
+      "moduleName": "relutionClientSecurity:Base64",
+      "keywords": "api decode encode method relutionclientsecurity service"
     },
     {
       "section": "api",
-      "id": "relutionAuth:LoginService",
+      "id": "relutionClientSecurity:LoginService",
       "shortName": "LoginService",
       "type": "service",
-      "moduleName": "relutionAuth:LoginService",
+      "moduleName": "relutionClientSecurity:LoginService",
       "shortDescription": "Simple Service to login and logout on relution server and store the result in the  LoginService.userResponse",
-      "keywords": "$q $relutionauthlauncher $rootscope $state api base64 basic basicauth bool clearcredentials connect credentials error errorlogout failed fields form hash header isloggedin loggedin login loginservice logon logout method password post property relution relutionauth remove response result securelogin securelogout server service set setpassword setusername simple store succesfully success successlogout user username userresponse"
+      "keywords": "$q $relutionsecurityconfig $rootscope $state api base64 basic basicauth bool clearcredentials connect credentials error errorlogout failed fields form hash header isloggedin loggedin login loginservice logon logout method password post property relution relutionclientsecurity remove response result securelogin securelogout server service set setpassword setusername simple store succesfully success successlogout user username userresponse"
     },
     {
       "section": "api",
-      "id": "relutionAuth:relutionLogOutButton",
+      "id": "relutionClientSecurity:relutionLogOutButton",
       "shortName": "relutionLogOutButton",
       "type": "directive",
-      "moduleName": "relutionAuth:relutionLogOutButton",
+      "moduleName": "relutionClientSecurity:relutionLogOutButton",
       "shortDescription": "A logout button directive with a icon",
-      "keywords": "aec api button directive icon logout relutionauth"
+      "keywords": "aec api button directive icon logout relutionclientsecurity"
     }
   ],
   "apis": {
@@ -53,7 +53,7 @@ NG_DOCS={
   },
   "__file": "_FAKE_DEST_/js/docs-setup.js",
   "__options": {
-    "startPage": "/api/relutionAuth",
+    "startPage": "/api/relutionClientSecurity",
     "scripts": [
       "js/angular.min.js",
       "js/angular-animate.min.js",
@@ -61,15 +61,15 @@ NG_DOCS={
       "js/prettify.js"
     ],
     "styles": [],
-    "title": "Relution Client Login",
+    "title": "Relution Client Security",
     "html5Mode": true,
     "editExample": true,
     "navTemplate": false,
     "navContent": "",
     "navTemplateData": {},
     "image": "http://www.relution.io/de/wp-content/themes/Divi/images/logo.png",
-    "imageLink": "https://github.com/mwaylabs/relution-client-login",
-    "titleLink": "/api/relutionAuth",
+    "imageLink": "https://github.com/mwaylabs/relution-client-security",
+    "titleLink": "/api/relutionClientSecurity",
     "loadDefaults": {
       "angular": true,
       "angularAnimate": true,
@@ -79,7 +79,7 @@ NG_DOCS={
   },
   "html5Mode": true,
   "editExample": true,
-  "startPage": "/api/relutionAuth",
+  "startPage": "/api/relutionClientSecurity",
   "scripts": [
     "angular.min.js",
     "angular-animate.min.js",
