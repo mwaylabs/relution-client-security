@@ -2,14 +2,14 @@
   <div class="list">
     <label class="item item-input ">
       <i class="icon {{loginC.icons.username}}"></i>
-      <input type="text" name="username" ng-model="loginC.service.form.username.value" placeholder="{{::'Username'|translate}}" required>
+      <input type="text" name="username" ng-model="loginC.service.form.username.value" placeholder="{{'Username'|translate}}" required>
     </label>
     <label class="item item-input ">
       <i class="icon {{loginC.icons.password}}"></i>
-      <input type="password" name="password" ng-model="loginC.service.form.password.value" placeholder="{{::'Password'|translate}}" required>
+      <input type="password" name="password" ng-model="loginC.service.form.password.value" placeholder="{{'Password'|translate}}" required>
     </label>
   </div>
   <div class="padding">
-    <button class="button button-block icon-left button-dark button-icon icon {{loginC.icons.login}}" ng-disabled="loginForm.$invalid">{{::'LOGIN'|translate}}</button>
+    <button class="button button-block icon-left button-dark button-icon icon {{loginC.icons.login}}" ng-disabled="loginForm.$invalid">{{'LOGIN'|translate}}</button>
   </div>
 </form>
