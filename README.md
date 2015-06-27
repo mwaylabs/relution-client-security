@@ -6,7 +6,7 @@ Installation
 bower install --save relution-client-login
 ````
 
-[Docs](http://mwaylabs.github.io/relution-client-login)
+[Docs](http://mwaylabs.github.io/relution-client-security)
 
 Scripts
 ===
