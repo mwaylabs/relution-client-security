@@ -226,4 +226,5 @@ from the request you get the response Object it is available in our LoginService
 LoginService.userResponse;
 ````
 
+###Available Trabslations
 

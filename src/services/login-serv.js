@@ -31,7 +31,7 @@
  * @description Simple Service to login and logout on relution server and store the result in the  LoginService.userResponse
  */
 angular.module('relutionClientSecurity')
-  .service('LoginService', function LoginService($q, $state, Base64, $rootScope, $relutionSecurityConfig) {
+  .service('LoginService', function LoginService($q, $state, Base64, $rootScope, $relutionSecurityConfig, UserService) {
     var self = this;
     /**
      * @ngdoc property
@@ -126,8 +126,12 @@ angular.module('relutionClientSecurity')
      */
     this.success = function (resp) {
       self.userResponse = resp;
-      return $state.go($relutionSecurityConfig.forwardStateAfterLogin);
+      self.isLoggedIn = true;
+      return UserService.init(resp).then(function () {
+        return $state.go($relutionSecurityConfig.forwardStateAfterLogin);
+      });
     };
+
     /**
      * @ngdoc method
      * @name error
@@ -135,6 +139,7 @@ angular.module('relutionClientSecurity')
      * @methodOf relutionClientSecurity:LoginService
      */
     this.error = function (e) {
+      console.log(e);
       return console.error('Login failed', e);
     };
     /**
@@ -144,9 +149,12 @@ angular.module('relutionClientSecurity')
      * @methodOf relutionClientSecurity:LoginService
      */
     this.successLogout = function () {
-      self.user = null;
-      console.log('logged out');
-      return $state.go($relutionSecurityConfig.forwardStateAfterLogout);
+      self.userResponse = null;
+      self.isLoggedIn = false;
+      $q.when(UserService.reset()).then(function () {
+        console.log('logged out');
+        return $state.go($relutionSecurityConfig.forwardStateAfterLogout);
+      });
     };
     /**
      * @ngdoc method
@@ -168,6 +176,7 @@ angular.module('relutionClientSecurity')
         console.error('please configure your loginUrl, $relutionSecurityConfig.loginUrl = secureloginUrl');
         return $q.when(false);
       }
+
       var params = {
         userName: self.form.username.value,
         password: self.form.password.value
@@ -175,12 +184,14 @@ angular.module('relutionClientSecurity')
       return jQuery.ajax({
         type: 'POST',
         headers: {
-          'Content-Type': 'application/json'//USE JSON Stadard
+          'Content-Type': 'application/json',//USE JSON Stadard,
+          'Access-Control-Allow-Origin': '*'
         },
         url: $relutionSecurityConfig.loginUrl,
         data: JSON.stringify(params),
         success: self.success,
         error: self.error,
+        //complete: self.success,
         dataType: 'json'
       });
     };
