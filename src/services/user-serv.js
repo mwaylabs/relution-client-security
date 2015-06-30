@@ -22,7 +22,7 @@
 'use strict';
 /**
  * @ngdoc service
- * @name relutionClientSecurity:UserService
+ * @name UserService
  * @requires $q
  * @description Simple Service to set the User Informations
  */
@@ -33,7 +33,7 @@ angular.module('relutionClientSecurity')
      * @ngdoc property
      * @name user
      * @description the response user
-     * @propertyOf relutionClientSecurity:UserService
+     * @propertyOf UserService
      * @returns {Object} or null
      */
     this.user = null;
@@ -41,7 +41,7 @@ angular.module('relutionClientSecurity')
      * @ngdoc property
      * @name roles
      * @description all roles
-     * @propertyOf relutionClientSecurity:UserService
+     * @propertyOf UserService
      * @returns {Array} or null
      */
     this.roles = null;
@@ -49,7 +49,7 @@ angular.module('relutionClientSecurity')
      * @ngdoc property
      * @name organization
      * @description the user organization
-     * @propertyOf relutionClientSecurity:UserService
+     * @propertyOf UserService
      * @returns {Object} or null
      */
     this.organization = null;
@@ -58,7 +58,7 @@ angular.module('relutionClientSecurity')
      * @name _setUser
      * @private
      * @description set User
-     * @methodOf relutionClientSecurity:UserService
+     * @methodOf UserService
      */
     var _setUser = function (user) {
       self.user = user;
@@ -67,7 +67,7 @@ angular.module('relutionClientSecurity')
      * @ngdoc method
      * @name getUser
      * @description get the User
-     * @methodOf relutionClientSecurity:UserService
+     * @methodOf UserService
      */
     this.getUser = function () {
       return this.user;
@@ -80,7 +80,7 @@ angular.module('relutionClientSecurity')
      * @ngdoc method
      * @name getRoles
      * @description get the Roles
-     * @methodOf relutionClientSecurity:UserService
+     * @methodOf UserService
      */
     this.getRoles = function () {
       return this.roles;
@@ -92,7 +92,7 @@ angular.module('relutionClientSecurity')
      * @ngdoc method
      * @name getOrganization
      * @description get the Organization
-     * @methodOf relutionClientSecurity:UserService
+     * @methodOf UserService
      */
     this.getOrganization = function () {
       return this.organization;
@@ -102,7 +102,7 @@ angular.module('relutionClientSecurity')
      * @private
      * @name _getProperty
      * @description get a Property by type name
-     * @methodOf relutionClientSecurity:UserService
+     * @methodOf UserService
      */
     var _getProperty = function (type, property) {
       return self[type][property] ? self[type][property] : false;
@@ -112,7 +112,7 @@ angular.module('relutionClientSecurity')
      * @private
      * @name _getPropertyByObject
      * @description get a Property by type name
-     * @methodOf relutionClientSecurity:UserService
+     * @methodOf UserService
      */
     var _getPropertyByObject = function (object, property) {
       return object[property] ? object[property] : false;
@@ -122,7 +122,7 @@ angular.module('relutionClientSecurity')
      * @private
      * @name _getProperties
      * @description get a Properties by Array<name>
-     * @methodOf relutionClientSecurity:UserService
+     * @methodOf UserService
      */
     var _getProperties = function (type, properties) {
       if (!Array.isArray(properties)) {
@@ -138,7 +138,7 @@ angular.module('relutionClientSecurity')
      * @ngdoc method
      * @name getUserProperty
      * @description get the User Property
-     * @methodOf relutionClientSecurity:UserService
+     * @methodOf UserService
      */
     this.getUserProperty = function (property) {
       return _getProperty('user', property);
@@ -147,7 +147,7 @@ angular.module('relutionClientSecurity')
      * @ngdoc method
      * @name getUserProperties
      * @description get properties from User by Array of Properties
-     * @methodOf relutionClientSecurity:UserService
+     * @methodOf UserService
      */
     this.getUserProperties = function (properties) {
       return _getProperties('user', properties);
@@ -156,7 +156,7 @@ angular.module('relutionClientSecurity')
      * @ngdoc method
      * @name getRolesProperty
      * @description get properties from Roles by property
-     * @methodOf relutionClientSecurity:UserService
+     * @methodOf UserService
      */
     this.getRolesProperty = function (property) {
       var roles = [];
@@ -171,7 +171,7 @@ angular.module('relutionClientSecurity')
      * @ngdoc method
      * @name getOrganizationProperty
      * @description get the Organization Property
-     * @methodOf relutionClientSecurity:UserService
+     * @methodOf UserService
      */
     this.getOrganizationProperty = function (property) {
       return _getProperty('organization', property);
@@ -180,7 +180,7 @@ angular.module('relutionClientSecurity')
      * @ngdoc method
      * @name getOrganizationProperties
      * @description get properties from Organization by Array of Properties
-     * @methodOf relutionClientSecurity:UserService
+     * @methodOf UserService
      */
     this.getOrganizationProperties = function (properties) {
       return _getProperties('organization', properties);
@@ -189,7 +189,7 @@ angular.module('relutionClientSecurity')
      * @ngdoc method
      * @name init
      * @description initial  the Service
-     * @methodOf relutionClientSecurity:UserService
+     * @methodOf UserService
      */
     this.init = function (resp) {
       return $q.all([
@@ -202,7 +202,7 @@ angular.module('relutionClientSecurity')
      * @ngdoc method
      * @name reset
      * @description reset the Service
-     * @methodOf relutionClientSecurity:UserService
+     * @methodOf UserService
      */
     this.reset = function () {
       return $q.all([
