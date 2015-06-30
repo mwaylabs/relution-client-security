@@ -1,6 +1,6 @@
 NG_DOCS={
   "sections": {
-    "api": "Relution Client Security - 0.0.8"
+    "api": "Relution Client Security - 0.0.9"
   },
   "pages": [
     {
@@ -70,7 +70,7 @@ NG_DOCS={
       "js/prettify.js"
     ],
     "styles": [],
-    "title": "Relution Client Security - 0.0.8",
+    "title": "Relution Client Security - 0.0.9",
     "html5Mode": true,
     "editExample": true,
     "navTemplate": false,
