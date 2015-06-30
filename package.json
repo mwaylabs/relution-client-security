@@ -1,14 +1,18 @@
 {
   "name": "relution-client-security",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "A Login/Logout Module for Relution LiveData. Works well with generator-m",
   "main": "gulpfile.js",
   "scripts": {
     "test": "karma start",
     "start": "node ./fakeserver/server.js"
   },
-  "author": "",
+  "author": "p.brewing@mwaysolutions.com",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/mwaylabs/relution-client-security"
+  },
   "devDependencies": {
     "angular-animate": "^1.4.1",
     "angular-mocks": "^1.4.1",

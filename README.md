@@ -223,7 +223,7 @@ navbar example:
 ````
 
 ###User Information
-the Userservice will b efilled in after succesfully Login available Methods check the [documentation](http://mwaylabs.github.io/relution-client-security)
+the Userservice will be filled in after succesfully Login available Methods check the [documentation](http://mwaylabs.github.io/relution-client-security).
 
 ###Available Translation Keys
 ````
