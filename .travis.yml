@@ -12,9 +12,9 @@ install:
   - bower install
   - npm install
   - gulp dist
+before_script: npm start
+script: karma start
 cache:
   directories:
   - bower_components
   - node_modules
-before_script: node ./fakeserver/server.js
-script: karma start
