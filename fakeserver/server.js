@@ -90,12 +90,15 @@ var response = {
   }
 };
 app.use('/login', function (req, res, next) {
-  console.log(req.headers.origin);
   if(req.headers.origin) {
     res.header('Access-Control-Allow-Origin', req.headers.origin);
     res.header('Access-Control-Allow-Credentials', true);
     oneof = true;
   }
+  //res.header('X-Gofer-User', response.user.uuid);
+  //res.header('X-Relution-Version', '3.0.0');
+  //res.header('X-Relution-Build', 'master');
+
   if(req.headers['access-control-request-method']) {
     res.header('Access-Control-Allow-Methods', req.headers['access-control-request-method']);
     oneof = true;
@@ -107,13 +110,12 @@ app.use('/login', function (req, res, next) {
   if(oneof) {
     res.header('Access-Control-Max-Age', 60 * 60 * 24 * 365);
   }
-  console.log(req.body, req.body.length == 2, req.body.password === password && req.body.userName === username);
-  res.status(200).json(response);
-  //if (req.body && req.body.password === password && req.body.userName === username) {
-  //
-  //} else {
-  //  res.status(401).json('fail');
-  //}
+  if (req.body && req.body.password === password && req.body.userName === username) {
+    console.log(req.body, req.body.password === password && req.body.userName === username);
+    res.status(200).json(response);
+  } else {
+    res.status(401).json('fail');
+  }
 });
 app.use('/logout', function (req, res) {
   if(req.headers.origin) {

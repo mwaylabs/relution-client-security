@@ -22,7 +22,7 @@
 'use strict';
 /**
  * @ngdoc service
- * @name relutionClientSecurity:$relutionSecurityConfig
+ * @name $relutionSecurityConfig
  * @description Configuration for the relutionAuth module
  */
 angular.module('relutionClientSecurity')
@@ -32,42 +32,42 @@ angular.module('relutionClientSecurity')
      * @ngdoc property
      * @name iconSet
      * @description available Icons
-     * @propertyOf relutionClientSecurity:$relutionSecurityConfig
+     * @propertyOf $relutionSecurityConfig
      */
     provider.iconSet = null;
     /**
      * @ngdoc property
      * @name forwardStateAfterLogin
      * @description the redirect url after login is successfull
-     * @propertyOf relutionClientSecurity:$relutionSecurityConfig
+     * @propertyOf $relutionSecurityConfig
      */
     provider.forwardStateAfterLogin = null;
     /**
      * @ngdoc property
      * @name forwardStateAfterLogout
      * @description the redirect url after logout
-     * @propertyOf relutionClientSecurity:$relutionSecurityConfig
+     * @propertyOf $relutionSecurityConfig
      */
     provider.forwardStateAfterLogout = null;
     /**
      * @ngdoc property
      * @name loginUrl
      * @description the server login url
-     * @propertyOf relutionClientSecurity:$relutionSecurityConfig
+     * @propertyOf $relutionSecurityConfig
      */
     provider.loginUrl = null;
     /**
      * @ngdoc property
      * @name loginUrl
      * @description the server logout url
-     * @propertyOf relutionClientSecurity:$relutionSecurityConfig
+     * @propertyOf $relutionSecurityConfig
      */
     provider.logoutUrl = null;
     /**
      * @ngdoc property
      * @name icons
      * @description the standard icon set
-     * @propertyOf relutionClientSecurity:$relutionSecurityConfig
+     * @propertyOf $relutionSecurityConfig
      */
     provider.icons =
     {
@@ -90,7 +90,7 @@ angular.module('relutionClientSecurity')
      * @ngdoc property
      * @name formViews
      * @description available form views
-     * @propertyOf relutionClientSecurity:$relutionSecurityConfig
+     * @propertyOf $relutionSecurityConfig
      */
     provider.formViews = {
       PLACEHOLDER_LABELS: 'placeholder_label.html',
@@ -104,7 +104,7 @@ angular.module('relutionClientSecurity')
      * @ngdoc method
      * @name setIcons
      * @description set the icons by Platform
-     * @methodOf relutionClientSecurity:$relutionSecurityConfig
+     * @methodOf $relutionSecurityConfig
      */
     provider.setIcons = function (key, icons) {
       provider.iconSet = ionic.Platform.isAndroid() ? provider.icons.android : provider.icons.ios;
@@ -122,7 +122,7 @@ angular.module('relutionClientSecurity')
      * @ngdoc method
      * @name setLayoutStyle
      * @description standard view
-     * @methodOf relutionClientSecurity:$relutionSecurityConfig
+     * @methodOf $relutionSecurityConfig
      */
     provider.setLayoutStyle = function (key) {
       if (!key) {
@@ -134,7 +134,7 @@ angular.module('relutionClientSecurity')
      * @ngdoc method
      * @name $get
      * @description init the provider
-     * @methodOf relutionClientSecurity:$relutionSecurityConfig
+     * @methodOf $relutionSecurityConfig
      */
     provider.$get = function () {
       return provider;
