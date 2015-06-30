@@ -1,6 +1,6 @@
 NG_DOCS={
   "sections": {
-    "api": "Relution Client Security - 0.0.9"
+    "api": "Relution Client Security - 1.0.0"
   },
   "pages": [
     {
@@ -45,7 +45,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "relutionLogOutButton",
       "shortDescription": "A logout button directive with a icon",
-      "keywords": "aec api button directive icon logout relutionlogoutbutton"
+      "keywords": "api button directive icon logout relutionlogoutbutton"
     },
     {
       "section": "api",
@@ -70,7 +70,7 @@ NG_DOCS={
       "js/prettify.js"
     ],
     "styles": [],
-    "title": "Relution Client Security - 0.0.9",
+    "title": "Relution Client Security - 1.0.0",
     "html5Mode": true,
     "editExample": true,
     "navTemplate": false,
