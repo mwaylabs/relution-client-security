@@ -1,4 +1,6 @@
-###Relution Client Login
+###Relution Client Security
+[![Bower version](https://badge.fury.io/bo/relution-client-security.svg)](http://badge.fury.io/bo/relution-client-security) [![Build Status][travis-image]][travis-url]
+
 A Login/Logout Module for Relution LiveData. Works well with [generator-m](https://github.com/mwaylabs/generator-m)
 Installation
 ===
@@ -6,7 +8,7 @@ Installation
 bower install --save relution-client-security
 ````
 
-[Docs](http://mwaylabs.github.io/relution-client-security)
+###[Docs](http://mwaylabs.github.io/relution-client-security)
 
 Scripts
 ===
@@ -221,10 +223,14 @@ navbar example:
 ````
 
 ###User Information
-from the request you get the response Object it is available in our LoginService
+the Userservice will b efilled in after succesfully Login available Methods check the [documentation](http://mwaylabs.github.io/relution-client-security)
+
+###Available Translation Keys
 ````
-LoginService.userResponse;
+{{Username}}
+{{Password}}
+{{Login}}
 ````
 
-###Available Trabslations
-
+[travis-url]: https://travis-ci.org/mwaylabs/relution-client-security
+[travis-image]: https://travis-ci.org/mwaylabs/relution-client-security.svg?branch=master
