@@ -6,15 +6,15 @@
 * @description
 * A logout button directive with a icon
 *
-* @restrict AEC
+* @restrict E
  */
 angular.module('relutionClientSecurity')
-.directive('relutionLogOutButton', function ($relutionAuthLauncher, $q, LoginService) {
+.directive('relutionLogOutButton', function ($relutionSecurityConfig, $q, LoginService) {
   return {
     template: '<button ng-click="logout();" class="button button-icon icon {{icon}}"></button>',
-    restrict: 'AEC',
+    restrict: 'E',
     link: function postLink (scope) {
-      scope.icon = $relutionAuthLauncher.iconSet.logout;
+      scope.icon = $relutionSecurityConfig.iconSet.logout;
       scope.logout = function () {
         return LoginService.secureLogout();
       };

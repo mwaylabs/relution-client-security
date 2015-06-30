@@ -5,3 +5,4 @@
 /www/
 .publish
 docs
+npm-debug.log
