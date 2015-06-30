@@ -1,9 +1,9 @@
-<h1><code ng:non-bindable="">relutionClientSecurity:LoginService</code>
+<h1><code ng:non-bindable="">LoginService</code>
 <div><span class="hint"></span>
 </div>
 </h1>
 <div><h2 id="description">Description</h2>
-<div class="description"><div class="relutionclientsecurity-page relutionclientsecurity-loginservice-page"><p>Simple Service to login and logout on relution server and store the result in the  LoginService.userResponse</p>
+<div class="description"><div class="loginservice-page"><p>Simple Service to login and logout on relution server and store the result in the  LoginService.userResponse</p>
 </div></div>
 <h2 id="dependencies">Dependencies</h2>
 <ul class="dependencies"><li><code ng:non-bindable=""><a href="api/ng.$q">$q</a></code>
@@ -20,6 +20,10 @@
 <div class="member method"><h2 id="methods">Methods</h2>
 <ul class="methods"><li><h3 id="methods_clearcredentials">clearCredentials()</h3>
 <div class="clearcredentials"><div class="clearcredentials-page"><p>remove the Basic auth from the Header</p>
+</div></div>
+</li>
+<li><h3 id="methods_complete">complete()</h3>
+<div class="complete"><div class="complete-page"><p>login succesfully</p>
 </div></div>
 </li>
 <li><h3 id="methods_error">error()</h3>
@@ -67,15 +71,23 @@
 </li>
 <li><h3 id="properties_form">form</h3>
 <div class="form"><div class="form-page"><p>the form fields</p>
-</div></div>
+</div><h5 id="properties_form_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="form-page"><p>{{username: {value: *, type: string, required: boolean}, password: {value: null, type: string, required: boolean}}}</p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="properties_header">header</h3>
+<div class="header"><div class="header-page"><p>the response header</p>
+</div><h5 id="properties_header_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="header-page"><p>{&#39;X-Gofer-User&#39; ...</p>
+</div></td></tr></table></div>
 </li>
 <li><h3 id="properties_isloggedin">isLoggedIn</h3>
 <div class="isloggedin"><div class="isloggedin-page"><p>bool if the user is loggedIn</p>
-</div></div>
+</div><h5 id="properties_isloggedin_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-boolean">boolean</a></td><td><div class="isloggedin-page"><p>true/false</p>
+</div></td></tr></table></div>
 </li>
 <li><h3 id="properties_userresponse">userResponse</h3>
 <div class="userresponse"><div class="userresponse-page"><p>the response user</p>
-</div></div>
+</div><h5 id="properties_userresponse_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="userresponse-page"><p>{user:, roles, orhganization ..</p>
+</div></td></tr></table></div>
 </li>
 </ul>
 </div>

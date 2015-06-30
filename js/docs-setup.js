@@ -1,8 +1,34 @@
 NG_DOCS={
   "sections": {
-    "api": "Relution Client Security"
+    "api": "Relution Client Security - 0.0.8"
   },
   "pages": [
+    {
+      "section": "api",
+      "id": "$relutionSecurityConfig",
+      "shortName": "$relutionSecurityConfig",
+      "type": "service",
+      "moduleName": "$relutionSecurityConfig",
+      "shortDescription": "Configuration for the relutionAuth module",
+      "keywords": "$get $relutionsecurityconfig api configuration form formviews forwardstateafterlogin forwardstateafterlogout icon icons iconset init login loginurl logout method module platform property provider redirect relutionauth server service set seticons setlayoutstyle standard successfull url view views"
+    },
+    {
+      "section": "api",
+      "id": "Base64",
+      "shortName": "Base64",
+      "type": "service",
+      "moduleName": "Base64",
+      "keywords": "api base64 decode encode method service"
+    },
+    {
+      "section": "api",
+      "id": "LoginService",
+      "shortName": "LoginService",
+      "type": "service",
+      "moduleName": "LoginService",
+      "shortDescription": "Simple Service to login and logout on relution server and store the result in the  LoginService.userResponse",
+      "keywords": "$q $relutionsecurityconfig $rootscope $state api base64 basic basicauth bool boolean clearcredentials complete connect credentials error errorlogout failed fields form hash header isloggedin loggedin login loginservice logon logout method null orhganization password post property relution remove required response result roles securelogin securelogout server service set setpassword setusername simple store string succesfully success successlogout true type user username userresponse x-gofer-user"
+    },
     {
       "section": "api",
       "id": "relutionClientSecurity",
@@ -14,38 +40,21 @@ NG_DOCS={
     },
     {
       "section": "api",
-      "id": "relutionClientSecurity:$relutionSecurityConfig",
-      "shortName": "$relutionSecurityConfig",
-      "type": "service",
-      "moduleName": "relutionClientSecurity:$relutionSecurityConfig",
-      "shortDescription": "Configuration for the relutionAuth module",
-      "keywords": "$get api configuration form formviews forwardstateafterlogin forwardstateafterlogout icon icons iconset init login loginurl logout method module platform property provider redirect relutionauth relutionclientsecurity server service set seticons setlayoutstyle standard successfull url view views"
-    },
-    {
-      "section": "api",
-      "id": "relutionClientSecurity:Base64",
-      "shortName": "Base64",
-      "type": "service",
-      "moduleName": "relutionClientSecurity:Base64",
-      "keywords": "api decode encode method relutionclientsecurity service"
-    },
-    {
-      "section": "api",
-      "id": "relutionClientSecurity:LoginService",
-      "shortName": "LoginService",
-      "type": "service",
-      "moduleName": "relutionClientSecurity:LoginService",
-      "shortDescription": "Simple Service to login and logout on relution server and store the result in the  LoginService.userResponse",
-      "keywords": "$q $relutionsecurityconfig $rootscope $state api base64 basic basicauth bool clearcredentials connect credentials error errorlogout failed fields form hash header isloggedin loggedin login loginservice logon logout method password post property relution relutionclientsecurity remove response result securelogin securelogout server service set setpassword setusername simple store succesfully success successlogout user username userresponse"
-    },
-    {
-      "section": "api",
-      "id": "relutionClientSecurity:relutionLogOutButton",
+      "id": "relutionLogOutButton",
       "shortName": "relutionLogOutButton",
       "type": "directive",
-      "moduleName": "relutionClientSecurity:relutionLogOutButton",
+      "moduleName": "relutionLogOutButton",
       "shortDescription": "A logout button directive with a icon",
-      "keywords": "aec api button directive icon logout relutionclientsecurity"
+      "keywords": "aec api button directive icon logout relutionlogoutbutton"
+    },
+    {
+      "section": "api",
+      "id": "UserService",
+      "shortName": "UserService",
+      "type": "service",
+      "moduleName": "UserService",
+      "shortDescription": "Simple Service to set the User Informations",
+      "keywords": "$q _getproperties _getproperty _getpropertybyobject _setuser api array getorganization getorganizationproperties getorganizationproperty getroles getrolesproperty getuser getuserproperties getuserproperty informations init initial method null organization properties property reset response roles service set simple type user userservice"
     }
   ],
   "apis": {
@@ -61,7 +70,7 @@ NG_DOCS={
       "js/prettify.js"
     ],
     "styles": [],
-    "title": "Relution Client Security",
+    "title": "Relution Client Security - 0.0.8",
     "html5Mode": true,
     "editExample": true,
     "navTemplate": false,
