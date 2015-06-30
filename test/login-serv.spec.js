@@ -17,27 +17,31 @@ describe('LoginService', function () {
     $relutionSecurityConfig.forwardStateAfterLogout = 'auth.login';
     $relutionSecurityConfig.loginUrl = 'http://localhost:3000/login';
     $relutionSecurityConfig.logoutUrl = 'http://localhost:3000/logout';
-    LoginService.form.username.value = 'pascal';
-    LoginService.form.password.value = 'foobar';
   }));
 
   describe('Constructor', function () {
+    it('set login credentials', function () {
+      LoginService.setUsername('pascal');
+      LoginService.setPassword('foobar');
+      assert.equal(LoginService.form.username.value, 'pascal');
+      assert.equal(LoginService.form.password.value, 'foobar');
+    });
     it('login on the server', function () {
-      LoginService.secureLogin().then(function (resp) {
-        LoginService.success(resp);
+      $q.when(LoginService.logon()).then(function () {
         expect(LoginService.isLoggedIn).to.be.true;
+        expect(LoginService.header).not.be.null;
         assert.deepEqual(UserService.user, resp.user);
         assert.deepEqual(UserService.roles, resp.roles.roles);
       });
     });
-    
     it('logout on the server', function () {
-      LoginService.secureLogout().then(function (resp) {});
-      expect(LoginService.isLoggedIn).to.be.false;
-      expect(LoginService.userResponse).to.be.null;
-      expect(UserService.user).is.equal(null);
-      expect(UserService.organization).is.equal(null);
-      expect(UserService.roles).is.equal(null);
+      LoginService.secureLogout().then(function (resp) {
+        expect(LoginService.isLoggedIn).to.be.false;
+        expect(LoginService.userResponse).to.be.null;
+        expect(UserService.user).is.equal(null);
+        expect(UserService.organization).is.equal(null);
+        expect(UserService.roles).is.equal(null);
+      });
     });
   });
 });

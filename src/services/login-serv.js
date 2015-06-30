@@ -22,7 +22,7 @@
 'use strict';
 /**
  * @ngdoc service
- * @name relutionClientSecurity:LoginService
+ * @name LoginService
  * @requires $q
  * @requires $state
  * @requires Base64
@@ -37,28 +37,39 @@ angular.module('relutionClientSecurity')
      * @ngdoc property
      * @name userResponse
      * @description the response user
-     * @propertyOf relutionClientSecurity:LoginService
+     * @propertyOf LoginService
+     * @returns {Object} {user:, roles, orhganization ..
      */
     this.userResponse = null;
     /**
      * @ngdoc property
+     * @name header
+     * @description the response header
+     * @propertyOf LoginService
+     * @returns {Object} {'X-Gofer-User' ...
+     */
+    this.header = null;
+    /**
+     * @ngdoc property
      * @name isLoggedIn
      * @description bool if the user is loggedIn
-     * @propertyOf relutionClientSecurity:LoginService
+     * @propertyOf LoginService
+     * @returns {boolean} true/false
      */
     this.isLoggedIn = false;
     /**
      * @ngdoc property
      * @name basicAuth
      * @description a base64 hash
-     * @propertyOf relutionClientSecurity:LoginService
+     * @propertyOf LoginService
      */
     this.basicAuth = null;
     /**
      * @ngdoc property
      * @name form
      * @description the form fields
-     * @propertyOf relutionClientSecurity:LoginService
+     * @propertyOf LoginService
+     * @returns {Object} {{username: {value: *, type: string, required: boolean}, password: {value: null, type: string, required: boolean}}}
      */
     this.form = {
       username: {
@@ -76,7 +87,7 @@ angular.module('relutionClientSecurity')
      * @ngdoc method
      * @name setUsername
      * @description set the username
-     * @methodOf relutionClientSecurity:LoginService
+     * @methodOf LoginService
      */
     this.setUsername = function (username) {
       self.form.username.value = username;
@@ -85,7 +96,7 @@ angular.module('relutionClientSecurity')
      * @ngdoc method
      * @name setPassword
      * @description set the password
-     * @methodOf relutionClientSecurity:LoginService
+     * @methodOf LoginService
      */
     this.setPassword = function (password) {
       self.form.password.value = password;
@@ -94,7 +105,7 @@ angular.module('relutionClientSecurity')
      * @ngdoc method
      * @name clearCredentials
      * @description remove the Basic auth from the Header
-     * @methodOf relutionClientSecurity:LoginService
+     * @methodOf LoginService
      */
     this.clearCredentials = function () {
       jQuery.ajaxSetup({
@@ -107,7 +118,7 @@ angular.module('relutionClientSecurity')
      * @ngdoc method
      * @name logon
      * @description set credentials the use post to connect
-     * @methodOf relutionClientSecurity:LoginService
+     * @methodOf LoginService
      */
     this.logon = function () {
       self.basicAuth = Base64.encode(self.form.username.value + ':' + self.form.password.value);
@@ -122,37 +133,46 @@ angular.module('relutionClientSecurity')
      * @ngdoc method
      * @name success
      * @description login succesfully
-     * @methodOf relutionClientSecurity:LoginService
+     * @methodOf LoginService
      */
     this.success = function (resp) {
       self.userResponse = resp;
       self.isLoggedIn = true;
+      console.log('resp', resp);
       return UserService.init(resp).then(function () {
         return $state.go($relutionSecurityConfig.forwardStateAfterLogin);
       });
     };
-
+    /**
+     * @ngdoc method
+     * @name complete
+     * @description login succesfully
+     * @methodOf LoginService
+     */
+    this.complete = function (resp, xhr) {
+      return self.header = resp.getAllResponseHeaders();
+    };
     /**
      * @ngdoc method
      * @name error
      * @description login failed
-     * @methodOf relutionClientSecurity:LoginService
+     * @methodOf LoginService
      */
     this.error = function (e) {
-      console.log(e);
+      //console.log(e);
       return console.error('Login failed', e);
     };
     /**
      * @ngdoc method
      * @name successLogout
      * @description logout succesfully
-     * @methodOf relutionClientSecurity:LoginService
+     * @methodOf LoginService
      */
     this.successLogout = function () {
       self.userResponse = null;
       self.isLoggedIn = false;
       $q.when(UserService.reset()).then(function () {
-        console.log('logged out');
+        //console.log('logged out');
         return $state.go($relutionSecurityConfig.forwardStateAfterLogout);
       });
     };
@@ -160,7 +180,7 @@ angular.module('relutionClientSecurity')
      * @ngdoc method
      * @name errorLogout
      * @description logout failed
-     * @methodOf relutionClientSecurity:LoginService
+     * @methodOf LoginService
      */
     this.errorLogout = function (e) {
       return console.error('Logout failed', e);
@@ -169,7 +189,7 @@ angular.module('relutionClientSecurity')
      * @ngdoc method
      * @name secureLogin
      * @description login on Server with Credentials
-     * @methodOf relutionClientSecurity:LoginService
+     * @methodOf LoginService
      */
     this.secureLogin = function () {
       if (!$relutionSecurityConfig.loginUrl) {
@@ -191,7 +211,7 @@ angular.module('relutionClientSecurity')
         data: JSON.stringify(params),
         success: self.success,
         error: self.error,
-        //complete: self.success,
+        complete: self.complete,
         dataType: 'json'
       });
     };
@@ -199,7 +219,7 @@ angular.module('relutionClientSecurity')
      * @ngdoc method
      * @name secureLogout
      * @description logout on Server
-     * @methodOf relutionClientSecurity:LoginService
+     * @methodOf LoginService
      */
     this.secureLogout = function () {
       if (!$relutionSecurityConfig.logoutUrl) {

@@ -22,7 +22,7 @@
 'use strict';
 /**
  * @ngdoc service
- * @name relutionClientSecurity:Base64
+ * @name Base64
  */
 angular.module('relutionClientSecurity')
   .factory('Base64', function () {
@@ -34,7 +34,7 @@ angular.module('relutionClientSecurity')
       /**
        * @ngdoc method
        * @name encode
-       * @methodOf relutionClientSecurity:Base64
+       * @methodOf Base64
        */
       encode: function (input) {
         var output = "";
@@ -72,7 +72,7 @@ angular.module('relutionClientSecurity')
       /**
        * @ngdoc method
        * @name decode
-       * @methodOf relutionClientSecurity:Base64
+       * @methodOf Base64
        */
       decode: function (input) {
         var output = "";

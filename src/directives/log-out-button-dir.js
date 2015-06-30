@@ -1,7 +1,7 @@
 'use strict';
 /**
 * @ngdoc directive
-* @name relutionClientSecurity:relutionLogOutButton
+* @name relutionLogOutButton
 *
 * @description
 * A logout button directive with a icon
