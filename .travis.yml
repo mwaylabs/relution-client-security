@@ -1,4 +1,9 @@
 language: node_js
 node_js:
   - '0.10.36'
-script: gulp dist
+install:
+  - npm install
+  - bower install
+  - gulp dist
+before_script: node ./fakeserver/server.js
+script: karma start
