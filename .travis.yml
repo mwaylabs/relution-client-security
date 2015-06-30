@@ -9,6 +9,7 @@ before_install:
   - npm install karma-cli -g
   - npm install gulp -g
 install:
+  - bower install
   - npm install
   - gulp dist
 cache:
