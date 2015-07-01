@@ -112,7 +112,7 @@ angular.module('app', [])
 
 #Login
 #####Controller
-please notice you have to use your Controller in 'as' mode and name it 'loginC' 
+Please notice you have to use your Controller in 'as' mode and name it 'loginC' 
 example:
 ````
 ng-controller="LoginCtrl as loginC"
@@ -224,7 +224,7 @@ navbar example:
 ````
 
 ###User Information
-the Userservice will be filled in after succesfully Login available Methods check the [documentation](http://mwaylabs.github.io/relution-client-security).
+The user service will be filled in after succesfully login available methods. Check the [documentation](http://mwaylabs.github.io/relution-client-security).
 
 ###Available Translation Keys
 ````
