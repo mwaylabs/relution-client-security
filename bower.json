@@ -1,12 +1,12 @@
 {
   "name": "relution-client-security",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "authors": [
     "DrMabuse23 <p.brewing@mwaysolutions.com>"
   ],
   "description": "A Login/Logout Module for Relution LiveData. Works well with generator-m",
   "main": [
-    "dist/relution-client-login.js",
+    "dist/relution-client-security.js",
     "dist/templates.js"
   ],
   "repository": {
