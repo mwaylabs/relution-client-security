@@ -26,7 +26,8 @@ angular.module('relutionApp', [
 Configuration
 ====
 #####Forms
-available Layout Styles
+Available Layout Styles (based on Ionic Framework):
+
 [PLACEHOLDER_LABELS](http://ionicframework.com/docs/components/#forms-placeholder-labels)
 [INLINE_LABELS](http://ionicframework.com/docs/components/#forms-inline-labels)
 [STACKED_LABELS](http://ionicframework.com/docs/components/#forms-stacked-labels)
@@ -64,10 +65,10 @@ example
 $relutionSecurityConfigProvider.setIcons();
 //or
 $relutionSecurityConfigProvider.setIcons('android', {
-	login: 'my cutom icon' ...
+	login: 'my custom icon' ...
 });
 $relutionSecurityConfigProvider.setIcons('ios', {
-	login: 'my cutom icon' ...
+	login: 'my custom icon' ...
 });
 `````
 #####Redirect after
