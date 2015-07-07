@@ -27,7 +27,7 @@ NG_DOCS={
       "type": "service",
       "moduleName": "HeaderService",
       "shortDescription": "Simple Service to set the User Informations",
-      "keywords": "$q api headerservice informations init initial method null organization property reset response roles service set simple user"
+      "keywords": "$q api complete headerservice informations init initial method null property relution require reset response service set simple user uuid version xgoferuser xrelutionversion xserver"
     },
     {
       "section": "api",
