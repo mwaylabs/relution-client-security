@@ -31,7 +31,7 @@
  * @description Simple Service to login and logout on relution server and store the result in the  LoginService.userResponse
  */
 angular.module('relutionClientSecurity')
-  .service('LoginService', function LoginService($q, $state, Base64, $rootScope, $relutionSecurityConfig, UserService) {
+  .service('LoginService', function LoginService($q, $state, Base64, $rootScope, $relutionSecurityConfig, UserService, HeaderService) {
     var self = this;
     /**
      * @ngdoc property
@@ -138,8 +138,8 @@ angular.module('relutionClientSecurity')
     this.success = function (resp) {
       self.userResponse = resp;
       self.isLoggedIn = true;
-      console.log('resp', resp);
-      return UserService.init(resp).then(function () {
+      //console.log('resp', resp);
+      return $q.when(UserService.init(resp)).then(function () {
         return $state.go($relutionSecurityConfig.forwardStateAfterLogin);
       });
     };
@@ -150,6 +150,7 @@ angular.module('relutionClientSecurity')
      * @methodOf LoginService
      */
     this.complete = function (resp, xhr) {
+      HeaderService.init(resp);
       return self.header = resp.getAllResponseHeaders();
     };
     /**
