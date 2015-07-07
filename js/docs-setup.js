@@ -22,6 +22,15 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "HeaderService",
+      "shortName": "HeaderService",
+      "type": "service",
+      "moduleName": "HeaderService",
+      "shortDescription": "Simple Service to set the User Informations",
+      "keywords": "$q api headerservice informations init initial method null organization property reset response roles service set simple user"
+    },
+    {
+      "section": "api",
       "id": "LoginService",
       "shortName": "LoginService",
       "type": "service",
