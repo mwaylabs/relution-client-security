@@ -1,5 +1,5 @@
 ###Relution Client Security
-[![Bower version](https://badge.fury.io/bo/relution-client-security.svg)](http://badge.fury.io/bo/relution-client-security) [![Build Status][travis-image]][travis-url]
+[![npm version](https://badge.fury.io/js/relution-client-security.svg)](http://badge.fury.io/js/relution-client-security) [![Bower version](https://badge.fury.io/bo/relution-client-security.svg)](http://badge.fury.io/bo/relution-client-security) [![Build Status][travis-image]][travis-url] 
 
 A Login/Logout Module for Relution LiveData. Works well with [generator-m](https://github.com/mwaylabs/generator-m)
 Installation
@@ -224,6 +224,12 @@ navbar example:
 
 ###User Information
 the Userservice will be filled in after succesfully Login available Methods check the [documentation](http://mwaylabs.github.io/relution-client-security).
+
+###Header Information
+the HeaderService will be filled in after succesfully Login available Variables are
+	- HeaderService.XGoferUser
+	- HeaderService.XServer
+	- HeaderService.XRelutionVersion
 
 ###Available Translation Keys
 ````

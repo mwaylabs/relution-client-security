@@ -172,8 +172,7 @@ angular.module('relutionClientSecurity')
     this.successLogout = function () {
       self.userResponse = null;
       self.isLoggedIn = false;
-      $q.when(UserService.reset()).then(function () {
-        //console.log('logged out');
+      $q.all([UserService.reset(), HeaderService.reset()]).then(function () {
         return $state.go($relutionSecurityConfig.forwardStateAfterLogout);
       });
     };
