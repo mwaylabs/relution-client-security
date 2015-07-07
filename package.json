@@ -1,6 +1,6 @@
 {
   "name": "relution-client-security",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "A Login/Logout Module for Relution LiveData. Works well with generator-m",
   "main": "gulpfile.js",
   "scripts": {

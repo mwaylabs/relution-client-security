@@ -28,12 +28,12 @@ Configuration
 #####Forms
 Available Layout Styles (based on Ionic Framework):
 
-[PLACEHOLDER_LABELS](http://ionicframework.com/docs/components/#forms-placeholder-labels)
-[INLINE_LABELS](http://ionicframework.com/docs/components/#forms-inline-labels)
-[STACKED_LABELS](http://ionicframework.com/docs/components/#forms-stacked-labels)
-[FLOATING_LABELS](http://ionicframework.com/docs/components/#forms-floating-labels)
-[INSET_LABELS](http://ionicframework.com/docs/components/#inset-forms)
-[INPUT_ICONS](http://ionicframework.com/docs/components/#input-icons)
+- [PLACEHOLDER_LABELS](http://ionicframework.com/docs/components/#forms-placeholder-labels)
+- [INLINE_LABELS](http://ionicframework.com/docs/components/#forms-inline-labels)
+- [STACKED_LABELS](http://ionicframework.com/docs/components/#forms-stacked-labels)
+- [FLOATING_LABELS](http://ionicframework.com/docs/components/#forms-floating-labels)
+- [INSET_LABELS](http://ionicframework.com/docs/components/#inset-forms)
+- [INPUT_ICONS](http://ionicframework.com/docs/components/#input-icons)
 default is PLACEHOLDER_LABELS
 `````
 $relutionSecurityConfigProvider.setLayoutStyle();
