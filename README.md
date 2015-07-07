@@ -26,7 +26,8 @@ angular.module('relutionApp', [
 Configuration
 ====
 #####Forms
-available Layout Styles
+Available Layout Styles (based on Ionic Framework):
+
 [PLACEHOLDER_LABELS](http://ionicframework.com/docs/components/#forms-placeholder-labels)
 [INLINE_LABELS](http://ionicframework.com/docs/components/#forms-inline-labels)
 [STACKED_LABELS](http://ionicframework.com/docs/components/#forms-stacked-labels)
@@ -64,10 +65,10 @@ example
 $relutionSecurityConfigProvider.setIcons();
 //or
 $relutionSecurityConfigProvider.setIcons('android', {
-	login: 'my cutom icon' ...
+	login: 'my custom icon' ...
 });
 $relutionSecurityConfigProvider.setIcons('ios', {
-	login: 'my cutom icon' ...
+	login: 'my custom icon' ...
 });
 `````
 #####Redirect after
@@ -111,7 +112,7 @@ angular.module('app', [])
 
 #Login
 #####Controller
-please notice you have to use your Controller in 'as' mode and name it 'loginC' 
+Please notice you have to use your Controller in 'as' mode and name it 'loginC' 
 example:
 ````
 ng-controller="LoginCtrl as loginC"
@@ -223,7 +224,7 @@ navbar example:
 ````
 
 ###User Information
-the Userservice will be filled in after succesfully Login available Methods check the [documentation](http://mwaylabs.github.io/relution-client-security).
+The user service will be filled in after succesfully login available methods. Check the [documentation](http://mwaylabs.github.io/relution-client-security).
 
 ###Header Information
 the HeaderService will be filled in after succesfully Login available Variables are
