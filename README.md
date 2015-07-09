@@ -1,5 +1,6 @@
 ###Relution Client Security
-[![npm version](https://badge.fury.io/js/relution-client-security.svg)](http://badge.fury.io/js/relution-client-security) [![Bower version](https://badge.fury.io/bo/relution-client-security.svg)](http://badge.fury.io/bo/relution-client-security) [![Build Status][travis-image]][travis-url] 
+[![Bower version](https://badge.fury.io/bo/relution-client-security.svg)](http://badge.fury.io/bo/relution-client-security) [![Build Status][travis-image]][travis-url]
+[![NPM](https://nodei.co/npm/relution-client-security.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/relution-client-security/)
 
 A Login/Logout Module for Relution LiveData. Works well with [generator-m](https://github.com/mwaylabs/generator-m)
 Installation
