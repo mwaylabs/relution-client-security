@@ -35,6 +35,7 @@ Available Layout Styles (based on Ionic Framework):
 - [FLOATING_LABELS](http://ionicframework.com/docs/components/#forms-floating-labels)
 - [INSET_LABELS](http://ionicframework.com/docs/components/#inset-forms)
 - [INPUT_ICONS](http://ionicframework.com/docs/components/#input-icons)
+
 default is PLACEHOLDER_LABELS
 `````
 $relutionSecurityConfigProvider.setLayoutStyle();
